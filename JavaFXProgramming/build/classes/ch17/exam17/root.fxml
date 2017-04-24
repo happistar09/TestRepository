@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="167.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam17.RootController">
+   <children>
+      <CheckBox fx:id="cb1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="안경" />
+      <CheckBox fx:id="cb2" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" text="모자" />
+      <ImageView fx:id="checkImageView" fitHeight="89.0" fitWidth="102.0" layoutX="85.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/geek.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnClose" layoutX="183.0" layoutY="113.0" mnemonicParsing="false" text="닫기">
+          <graphic>
+              <ImageView>
+                 <image>
+                     <Image url="@images/exit.png" />
+                 </image>
+              </ImageView>
+          </graphic>
+      </Button>
+      <Separator layoutX="203.0" layoutY="15.0" orientation="VERTICAL" prefHeight="73.0" prefWidth="0.0" />
+      <RadioButton fx:id="rb1" userData="BubbleChart" layoutX="216.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="BubbleChart">
+         <toggleGroup>
+            <ToggleGroup fx:id="rbGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rb2" userData="BubbleChart" layoutX="216.0" layoutY="39.0" mnemonicParsing="false" text="BarChart" toggleGroup="$rbGroup" />
+      <RadioButton fx:id="rb3" userData="BubbleChart" layoutX="216.0" layoutY="64.0" mnemonicParsing="false" text="AreaChart" toggleGroup="$rbGroup" />
+      <ImageView fx:id="radioImageView" fitHeight="80.0" fitWidth="80.0" layoutX="318.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/BubbleChart.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

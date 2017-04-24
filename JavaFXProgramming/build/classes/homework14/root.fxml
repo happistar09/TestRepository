@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="220.0" prefWidth="548.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homework14.RootController">
+   <children>
+      <StackPane layoutX="7.0" layoutY="7.0" prefHeight="180.0" prefWidth="360.0">
+         <children>
+            <ImageView fitHeight="180.0" fitWidth="360.0" pickOnBounds="true">
+               <image>
+                  <Image url="@media/audio.png" />
+               </image>
+            </ImageView>
+            <MediaView fx:id="mediaView" fitHeight="180.0" fitWidth="360.0" preserveRatio="false" />
+         </children>
+      </StackPane>
+      <Button fx:id="btnPlay" disable="true" layoutX="392.0" layoutY="20.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="143.0" text="재생" />
+      <Button fx:id="btnPause" disable="true" layoutX="392.0" layoutY="43.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="143.0" text="일시정지" />
+      <Button fx:id="btnStop" disable="true" layoutX="392.0" layoutY="66.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="143.0" text="중지" />
+      <Label layoutX="392.0" layoutY="173.0" text="Volume" />
+      <Slider fx:id="sliderVolume" layoutX="392.0" layoutY="192.0" prefHeight="14.0" prefWidth="149.0" showTickMarks="true" />
+      <ProgressBar fx:id="progressBar" layoutX="392.0" layoutY="123.0" prefHeight="15.0" prefWidth="93.0" progress="0.0" />
+      <Label layoutX="392.0" layoutY="103.0" text="Time" />
+      <ProgressIndicator fx:id="progressIndicator" layoutX="503.0" layoutY="122.0" progress="0.0" />
+      <Label fx:id="labelTime" alignment="CENTER" layoutX="391.0" layoutY="148.0" prefHeight="15.0" prefWidth="93.0" text="10/60 sec" />
+      <Slider fx:id="sliderPlay" layoutX="7.0" layoutY="192.0" prefHeight="14.0" prefWidth="360.0" />
+   </children>
+</AnchorPane>

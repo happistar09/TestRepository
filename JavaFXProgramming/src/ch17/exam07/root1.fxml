@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/member01.png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="50.0" prefWidth="163.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label maxWidth="1.7976931348623157E308" style="-fx-background-color: skyblue;" text="안녕하세요">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="253.0" text="오늘은 비가 오네요. 자바 학습 열심히 하세요 ^_^" wrapText="true" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/member03.png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="50.0" prefWidth="163.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label maxWidth="1.7976931348623157E308" style="-fx-background-color: yellowgreen;" text="Hi">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="253.0" text="Nice to Meet You ^o^" wrapText="true" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/member06.png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="50.0" prefWidth="163.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label maxWidth="1.7976931348623157E308" style="-fx-background-color: pink;" text="안녕하세요">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="253.0" text="배고파요 ㅠ_ㅠ" wrapText="true" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

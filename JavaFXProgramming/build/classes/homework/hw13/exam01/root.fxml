@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="303.0" prefWidth="452.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homework.hw13.exam01.RootController">
+   <children>
+      <CheckBox fx:id="checkBox1" layoutX="49.0" layoutY="54.0" mnemonicParsing="false" text="Barcelona" />
+      <CheckBox fx:id="checkBox2" layoutX="49.0" layoutY="104.0" mnemonicParsing="false" text="realmadrid" />
+      <ImageView fx:id="checkImageView" fitHeight="111.0" fitWidth="121.0" layoutX="72.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/barcelona.png" />
+         </image></ImageView>
+      <RadioButton userData="Messi" layoutX="335.0" layoutY="54.0" mnemonicParsing="false" selected="true" text="Messi" toggleGroup="$players">
+         <toggleGroup>
+            <ToggleGroup fx:id="players" />
+         </toggleGroup></RadioButton>
+      <RadioButton userData="Ronaldo" layoutX="335.0" layoutY="77.0" mnemonicParsing="false" text="Ronaldo" toggleGroup="$players" />
+      <RadioButton userData="Neymar" layoutX="337.0" layoutY="104.0" mnemonicParsing="false" text="Neymar" toggleGroup="$players" />
+      <ImageView fitHeight="145.0" fitWidth="206.0" layoutX="336.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnClose" layoutX="251.0" layoutY="285.0" mnemonicParsing="false" text="Close" />
+      <ImageView fx:id="radioImageView" fitHeight="123.0" fitWidth="156.0" layoutX="335.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/messi.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

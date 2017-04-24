@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="287.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam24.RootController">
+   <children>
+      <MediaView fx:id="mediaView" fitHeight="250.0" fitWidth="350.0" layoutX="36.0" layoutY="22.0" />
+      <Button fx:id="btnPlay" disable="true" layoutX="443.0" layoutY="26.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="143.0" text="재생" />
+      <Button fx:id="btnPause" disable="true" layoutX="443.0" layoutY="49.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="143.0" text="일시정지" />
+      <Button fx:id="btnStop" disable="true" layoutX="444.0" layoutY="72.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="143.0" text="중지" />
+   </children>
+</AnchorPane>
