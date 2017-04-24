@@ -1,0 +1,21 @@
+package ch10.exam05;
+
+public class AccountExample {
+	public static void main(String[] args) {
+		
+		Account account = new Account();
+		System.out.println("¿‹∞Ì : " + account.getBalance());
+		account.deposit(100000);
+		System.out.println("¿‹∞Ì : " + account.getBalance());
+		try {
+			account.withdraw(200000);
+		} catch (BalanceInsufficientException e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("¿‹∞Ì : " + account.getBalance());
+		//account.withdraw(100000);
+		//System.out.println("¿‹∞Ì : " + account.getBalance());
+		
+		
+	}
+}
