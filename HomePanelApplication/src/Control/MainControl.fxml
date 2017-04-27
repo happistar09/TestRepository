@@ -8,14 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.MainControlController">
    <children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
             <Image url="@images/background.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnHeating" alignment="CENTER" layoutX="182.0" layoutY="181.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="170.0" textAlignment="RIGHT">
+      <Button fx:id="btnHeating" alignment="CENTER" layoutX="182.0" layoutY="181.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="170.0" style="-fx-background-color: white;" textAlignment="RIGHT">
          <font>
             <Font name="Gisha" size="15.0" />
          </font>
