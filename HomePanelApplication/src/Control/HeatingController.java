@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 
 public class HeatingController implements Initializable {
@@ -21,6 +22,20 @@ public class HeatingController implements Initializable {
 	private Button btnOnOffRoom2;
 	@FXML
 	private Button btnOnOffRoom3;
+	@FXML
+	private Button btnTemperMain;
+	@FXML
+	private Button btnTemperRoom3;
+	@FXML
+	private Button btnTemperRoom2;
+	@FXML
+	private Button btnTemperRoom1;
+	@FXML
+	private Button btnTemperBigRoom;
+	@FXML
+	private Button btnBack;
+	@FXML
+	private Button btnHome;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -29,6 +44,7 @@ public class HeatingController implements Initializable {
 		btnOnOffRoom1.setOnAction(e -> handleBtnOnOffRoom1(e));
 		btnOnOffRoom2.setOnAction(e -> handleBtnOnOffRoom2(e));
 		btnOnOffRoom3.setOnAction(e -> handleBtnOnOffRoom3(e));
+		btnBack.setOnAction(e -> handleBtnBack(e));
 	}	
 	private void handleBtnOnOffMain(ActionEvent e){	
 		if((btnOnOffMain.getText()).equals("ON")){
@@ -73,6 +89,10 @@ public class HeatingController implements Initializable {
 		else{
 			btnOnOffRoom3.setText("ON");
 		}
+	}
+	
+	private void handleBtnBack(ActionEvent e){
+		
 	}
 	
 }
