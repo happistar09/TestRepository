@@ -22,6 +22,7 @@ public class MainControlController implements Initializable {
 	private Button btnLight;
 	@FXML
 	private AnchorPane anchorPane;
+        
 
 
 	@Override

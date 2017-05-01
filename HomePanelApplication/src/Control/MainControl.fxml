@@ -12,32 +12,42 @@
    <children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@images/background.jpg" />
+            <Image url="@images/background_black.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnHeating" alignment="CENTER" layoutX="182.0" layoutY="181.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="170.0" style="-fx-background-color: white;" textAlignment="RIGHT">
+      <Button fx:id="btnHeating" alignment="CENTER" layoutX="186.0" layoutY="138.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: transparent;" textAlignment="RIGHT">
          <font>
             <Font name="Gisha" size="15.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true">
+            <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true">
                <image>
                   <Image url="@images/heating.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnLight" alignment="CENTER" layoutX="465.0" layoutY="183.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="170.0" textAlignment="RIGHT">
+      <Button fx:id="btnLight" alignment="CENTER" layoutX="482.0" layoutY="138.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: transparent;" textAlignment="RIGHT">
          <font>
             <Font name="Gisha" size="15.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true">
+            <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true">
                <image>
                   <Image url="@images/light.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
+      <Label layoutX="225.0" layoutY="325.0" text="난방설정" textFill="WHITE">
+         <font>
+            <Font name="휴먼옛체" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="521.0" layoutY="325.0" text="전등설정" textFill="WHITE">
+         <font>
+            <Font name="휴먼옛체" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
