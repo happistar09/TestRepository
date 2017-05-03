@@ -29,16 +29,6 @@ public class HeatingController implements Initializable {
 	@FXML
 	private Button btnOnOffRoom3;
 	@FXML
-	private Button btnTemperMain;
-	@FXML
-	private Button btnTemperRoom3;
-	@FXML
-	private Button btnTemperRoom2;
-	@FXML
-	private Button btnTemperRoom1;
-	@FXML
-	private Button btnTemperBigRoom;
-	@FXML
 	private Button btnBack;
 	@FXML
 	private Button btnHome;
