@@ -3,8 +3,6 @@ package Control;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 
 
 public class HeatingController implements Initializable {
@@ -60,6 +59,19 @@ public class HeatingController implements Initializable {
         private Button btnTemperRoom2;
         @FXML
         private Button btnTemperRoom3;
+        @FXML
+        private ImageView imgTempMain;
+        @FXML
+        private ImageView imgTempBig;
+        @FXML
+        private ImageView imgTempRoom1;
+        @FXML
+        private ImageView imgTempRoom2;
+        @FXML
+        private ImageView imgTempRoom3;
+        
+        public static String tempTitle="";
+        
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -71,18 +83,25 @@ public class HeatingController implements Initializable {
 		btnBack.setOnAction(e -> handleBtnBack(e));
                 btnHome.setOnAction(e -> handleBtnHome(e));
                 btnAllOn.setOnAction(e -> handleBtnAllOn(e));
-                btnAllOff.setOnAction(e -> handleBtnAllOff(e));
+                btnAllOff.setOnAction(e -> handleBtnAllOff(e));                
                 btnTemperMain.setOnAction(e -> handleBtnTemperMain(e));
+                btnTemperBigRoom.setOnAction(e -> handleBtnTemperBig(e));
+                btnTemperRoom1.setOnAction(e -> handleBtnTemperRoom1(e));
+                btnTemperRoom2.setOnAction(e -> handleBtnTemperRoom2(e));
+                btnTemperRoom3.setOnAction(e -> handleBtnTemperRoom3(e));
+                
 	}	
 	private void handleBtnOnOffMain(ActionEvent e){	
 		if((btnOnOffMain.getText()).equals("ON")){
 			btnOnOffMain.setText("OFF");
                         imageMain.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgTempMain.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                         System.out.println("거실 난방 OFF");
 		}
 		else{
 			btnOnOffMain.setText("ON");
                         imageMain.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgTempMain.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                         System.out.println("거실 난방 ON");
 		}
 	}
@@ -91,11 +110,13 @@ public class HeatingController implements Initializable {
 		if((btnOnOffBigRoom.getText()).equals("ON")){
 			btnOnOffBigRoom.setText("OFF");
                         imageBigRoom.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgTempBig.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                         System.out.println("안방 난방 OFF");
 		}
 		else{
 			btnOnOffBigRoom.setText("ON");
                         imageBigRoom.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgTempBig.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                         System.out.println("안방 난방 ON");
 		}
 	}
@@ -104,11 +125,13 @@ public class HeatingController implements Initializable {
 		if((btnOnOffRoom1.getText()).equals("ON")){
 			btnOnOffRoom1.setText("OFF");
                         imageRoom1.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgTempRoom1.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                         System.out.println("침실1 난방 OFF");
 		}
 		else{
 			btnOnOffRoom1.setText("ON");
                         imageRoom1.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                         imgTempRoom1.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                         System.out.println("침실1 난방 ON");
 		}
 	}
@@ -117,11 +140,13 @@ public class HeatingController implements Initializable {
 		if((btnOnOffRoom2.getText()).equals("ON")){
 			btnOnOffRoom2.setText("OFF");
                         imageRoom2.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgTempRoom2.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                         System.out.println("침실2 난방 OFF");
 		}
 		else{
 			btnOnOffRoom2.setText("ON");
                         imageRoom2.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgTempRoom2.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                         System.out.println("침실2 난방 ON");
 		}
 	}
@@ -130,11 +155,13 @@ public class HeatingController implements Initializable {
 		if((btnOnOffRoom3.getText()).equals("ON")){
 			btnOnOffRoom3.setText("OFF");
                         imageRoom3.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgTempRoom3.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                         System.out.println("침실3 난방 OFF");
 		}
 		else{
 			btnOnOffRoom3.setText("ON");
                         imageRoom1.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgTempRoom3.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                         System.out.println("침실3 난방 ON");
 		}
 	}
@@ -142,14 +169,19 @@ public class HeatingController implements Initializable {
         private void handleBtnAllOn(ActionEvent e){
                 btnOnOffMain.setText("ON");
                 imageMain.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                imgTempMain.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                 btnOnOffBigRoom.setText("ON");
-                imageBigRoom.setImage(new Image(getClass().getResource("images/on.png").toString()));   
+                imageBigRoom.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                imgTempBig.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                 btnOnOffRoom1.setText("ON");
                 imageRoom1.setImage(new Image(getClass().getResource("images/on.png").toString())); 
+                imgTempRoom1.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                 btnOnOffRoom2.setText("ON");
                 imageRoom2.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                imgTempRoom2.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                 btnOnOffRoom3.setText("ON");
                 imageRoom3.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                imgTempRoom3.setImage(new Image(getClass().getResource("images/thermometer_on.png").toString()));
                 System.out.println("전체 난방 ON");
           
           
@@ -158,14 +190,19 @@ public class HeatingController implements Initializable {
         private void handleBtnAllOff(ActionEvent e){
                 btnOnOffMain.setText("OFF");
                 imageMain.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                imgTempMain.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                 btnOnOffBigRoom.setText("OFF");
-                imageBigRoom.setImage(new Image(getClass().getResource("images/off.png").toString()));   
+                imageBigRoom.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                imgTempBig.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                 btnOnOffRoom1.setText("OFF");
                 imageRoom1.setImage(new Image(getClass().getResource("images/off.png").toString())); 
+                imgTempRoom1.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                 btnOnOffRoom2.setText("OFF");
                 imageRoom2.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                imgTempRoom2.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                 btnOnOffRoom3.setText("OFF");
                 imageRoom3.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                imgTempRoom3.setImage(new Image(getClass().getResource("images/thermometer_off.png").toString()));
                 System.out.println("전체 난방 OFF");
               
         }
@@ -184,23 +221,93 @@ public class HeatingController implements Initializable {
 		
 	}
         
-        private void handleBtnTemperMain(ActionEvent e){        
-            
-            
-            try {
-                Stage dialog = new Stage(StageStyle.UTILITY);
-                dialog.initModality(Modality.WINDOW_MODAL);
-                Stage primaryStage = (Stage)btnTemperMain.getScene().getWindow();
-                dialog.initOwner(primaryStage);
-                dialog.setTitle("온도설정");
-                Parent parent = FXMLLoader.load(getClass().getResource("Temperature.fxml"));
-                Scene scene = new Scene(parent);
-                dialog.setScene(scene);
-                dialog.setResizable(false);
-                dialog.show();
-                
-            } catch (IOException ex) { }
-            
+        private void handleBtnTemperMain(ActionEvent e){            
+            if((btnOnOffMain.getText()).equals("ON")){
+                try {                    
+                     tempTitle="거실";
+                    Stage dialog = new Stage(StageStyle.UTILITY);
+                    dialog.initModality(Modality.WINDOW_MODAL);
+                    Stage primaryStage = (Stage)btnTemperMain.getScene().getWindow();
+                    dialog.initOwner(primaryStage);
+                    dialog.setTitle("온도설정");
+                    Parent parent = FXMLLoader.load(getClass().getResource("Temperature.fxml"));
+                    Scene scene = new Scene(parent);
+                    dialog.setScene(scene);
+                    dialog.setResizable(false);
+                    dialog.show();
+                } catch (IOException ex) { }            
+            }
         }
-	
+        
+        private void handleBtnTemperBig(ActionEvent e){            
+            if((btnOnOffBigRoom.getText()).equals("ON")){
+                try {                    
+                     tempTitle="안방";
+                    Stage dialog = new Stage(StageStyle.UTILITY);
+                    dialog.initModality(Modality.WINDOW_MODAL);
+                    Stage primaryStage = (Stage)btnTemperMain.getScene().getWindow();
+                    dialog.initOwner(primaryStage);
+                    dialog.setTitle("온도설정");
+                    Parent parent = FXMLLoader.load(getClass().getResource("Temperature.fxml"));
+                    Scene scene = new Scene(parent);
+                    dialog.setScene(scene);
+                    dialog.setResizable(false);
+                    dialog.show();
+                } catch (IOException ex) { }            
+            }
+        }
+        
+        private void handleBtnTemperRoom1(ActionEvent e){            
+            if((btnOnOffRoom1.getText()).equals("ON")){
+                try {                    
+                     tempTitle="침실1";
+                    Stage dialog = new Stage(StageStyle.UTILITY);
+                    dialog.initModality(Modality.WINDOW_MODAL);
+                    Stage primaryStage = (Stage)btnTemperMain.getScene().getWindow();
+                    dialog.initOwner(primaryStage);
+                    dialog.setTitle("온도설정");
+                    Parent parent = FXMLLoader.load(getClass().getResource("Temperature.fxml"));
+                    Scene scene = new Scene(parent);
+                    dialog.setScene(scene);
+                    dialog.setResizable(false);
+                    dialog.show();
+                } catch (IOException ex) { }            
+            }
+        }
+        
+        private void handleBtnTemperRoom2(ActionEvent e){            
+            if((btnOnOffRoom2.getText()).equals("ON")){
+                try {                    
+                     tempTitle="침실2";
+                    Stage dialog = new Stage(StageStyle.UTILITY);
+                    dialog.initModality(Modality.WINDOW_MODAL);
+                    Stage primaryStage = (Stage)btnTemperMain.getScene().getWindow();
+                    dialog.initOwner(primaryStage);
+                    dialog.setTitle("온도설정");
+                    Parent parent = FXMLLoader.load(getClass().getResource("Temperature.fxml"));
+                    Scene scene = new Scene(parent);
+                    dialog.setScene(scene);
+                    dialog.setResizable(false);
+                    dialog.show();
+                } catch (IOException ex) { }            
+            }
+        }
+        
+        private void handleBtnTemperRoom3(ActionEvent e){            
+            if((btnOnOffRoom3.getText()).equals("ON")){
+                try {                    
+                     tempTitle="침실3";
+                    Stage dialog = new Stage(StageStyle.UTILITY);
+                    dialog.initModality(Modality.WINDOW_MODAL);
+                    Stage primaryStage = (Stage)btnTemperMain.getScene().getWindow();
+                    dialog.initOwner(primaryStage);
+                    dialog.setTitle("온도설정");
+                    Parent parent = FXMLLoader.load(getClass().getResource("Temperature.fxml"));
+                    Scene scene = new Scene(parent);
+                    dialog.setScene(scene);
+                    dialog.setResizable(false);
+                    dialog.show();
+                } catch (IOException ex) { }            
+            }
+        }
 }

@@ -69,9 +69,9 @@
          </font></Button>
       <Button fx:id="btnTemperMain" layoutX="669.0" layoutY="84.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="온도설정" textFill="WHITE" wrapText="true">
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgTempMain" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/thermometer1.png" />
+                  <Image url="@images/thermometer_on.png" />
                </image>
             </ImageView>
          </graphic>
@@ -194,9 +194,9 @@
             <Font name="휴먼고딕" size="12.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgTempBig" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/thermometer1.png" />
+                  <Image url="@images/thermometer_on.png" />
                </image>
             </ImageView>
          </graphic>
@@ -206,9 +206,9 @@
             <Font name="휴먼고딕" size="12.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgTempRoom1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/thermometer1.png" />
+                  <Image url="@images/thermometer_on.png" />
                </image>
             </ImageView>
          </graphic>
@@ -218,9 +218,9 @@
             <Font name="휴먼고딕" size="12.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgTempRoom2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/thermometer1.png" />
+                  <Image url="@images/thermometer_on.png" />
                </image>
             </ImageView>
          </graphic>
@@ -230,9 +230,9 @@
             <Font name="휴먼고딕" size="12.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgTempRoom3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/thermometer1.png" />
+                  <Image url="@images/thermometer_on.png" />
                </image>
             </ImageView>
          </graphic>
