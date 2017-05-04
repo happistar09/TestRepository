@@ -94,7 +94,7 @@
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
                <image>
-                  <Image url="@images/back.png" />
+                  <Image url="@images/back(white).png" />
                </image>
             </ImageView>
          </graphic>
@@ -127,7 +127,7 @@
       </ImageView>
       <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="722.0" layoutY="18.0" pickOnBounds="true">
          <image>
-            <Image url="@images/home.png" />
+            <Image url="@images/home_shadow.png" />
          </image>
       </ImageView>
       <Button fx:id="btnOnOffBigRoom" layoutX="586.0" layoutY="141.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="ON" textFill="WHITE" wrapText="true">
