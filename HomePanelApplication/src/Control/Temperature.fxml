@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="380.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="380.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/background10.jpg" />
+         </image>
+      </ImageView>
+      <Separator layoutX="19.0" layoutY="68.0" prefHeight="0.0" prefWidth="562.0" />
+      <Label layoutX="63.0" layoutY="29.0" text="거실" textFill="WHITE">
+         <font>
+            <Font name="휴먼옛체" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="99.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/thermometer1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="300.0" layoutY="141.0" text="현재온도" textFill="WHITE">
+          <font>
+              <Font name="휴먼고딕" size="20.0" />
+          </font>
+      </Label>
+      <Label layoutX="432.0" layoutY="136.0" text="26" textFill="WHITE">
+          <font>
+              <Font name="휴먼고딕" size="30.0" />
+          </font>
+      </Label>
+      <Label layoutX="475.0" layoutY="142.0" text="도" textFill="WHITE">
+          <font>
+              <Font name="휴먼고딕" size="20.0" />
+          </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="221.0" text="설정온도" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="475.0" layoutY="252.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="475.0" layoutY="210.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>

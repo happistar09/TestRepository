@@ -3,6 +3,8 @@ package Control;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class HeatingController implements Initializable {
@@ -46,6 +50,16 @@ public class HeatingController implements Initializable {
         private ImageView imageRoom2;
         @FXML
         private ImageView imageRoom3;
+        @FXML
+        private Button btnTemperMain;
+        @FXML
+        private Button btnTemperBigRoom;
+        @FXML
+        private Button btnTemperRoom1;
+        @FXML
+        private Button btnTemperRoom2;
+        @FXML
+        private Button btnTemperRoom3;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -58,6 +72,7 @@ public class HeatingController implements Initializable {
                 btnHome.setOnAction(e -> handleBtnHome(e));
                 btnAllOn.setOnAction(e -> handleBtnAllOn(e));
                 btnAllOff.setOnAction(e -> handleBtnAllOff(e));
+                btnTemperMain.setOnAction(e -> handleBtnTemperMain(e));
 	}	
 	private void handleBtnOnOffMain(ActionEvent e){	
 		if((btnOnOffMain.getText()).equals("ON")){
@@ -168,5 +183,24 @@ public class HeatingController implements Initializable {
         private void handleBtnHome(ActionEvent e){
 		
 	}
+        
+        private void handleBtnTemperMain(ActionEvent e){        
+            
+            
+            try {
+                Stage dialog = new Stage(StageStyle.UTILITY);
+                dialog.initModality(Modality.WINDOW_MODAL);
+                Stage primaryStage = (Stage)btnTemperMain.getScene().getWindow();
+                dialog.initOwner(primaryStage);
+                dialog.setTitle("온도설정");
+                Parent parent = FXMLLoader.load(getClass().getResource("Temperature.fxml"));
+                Scene scene = new Scene(parent);
+                dialog.setScene(scene);
+                dialog.setResizable(false);
+                dialog.show();
+                
+            } catch (IOException ex) { }
+            
+        }
 	
 }
