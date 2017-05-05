@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class TemperatureController implements Initializable {
 
@@ -20,22 +21,52 @@ public class TemperatureController implements Initializable {
     private Label lbTempNow;
     @FXML
     private Label lbTempSetting;
+    @FXML
+    private Button btnConfirm;
+    @FXML
+    private Button btnCancel;
+    
+    public static int tempKey=1;
+    
 
+    
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        lbTitle.setText(HeatingController.tempTitle);
+        
+        lbTitle.setText(HeatingController.tempTitle);        
+        lbTempSetting.setText(String.valueOf(HeatingController.tempNew));
         btnUp.setOnAction(e -> handleBtnUp(e));
         btnDown.setOnAction(e -> handleBtnDown(e));
+        btnConfirm.setOnAction(e -> handleBtnConfirm(e));
+        btnCancel.setOnAction(e -> handleBtnCancel(e));
         
     }    
     
     private void handleBtnUp(ActionEvent e){     
         lbTempSetting.setText(String.valueOf(Integer.parseInt(lbTempSetting.getText())+1));
     }
+    
     private void handleBtnDown(ActionEvent e){     
         lbTempSetting.setText(String.valueOf(Integer.parseInt(lbTempSetting.getText())-1));
+    }
+    
+    private void handleBtnConfirm(ActionEvent e){
+        if(tempKey==1) HeatingController.tempMain = Integer.parseInt(lbTempSetting.getText());
+        else if(tempKey==2) HeatingController.tempBig = Integer.parseInt(lbTempSetting.getText());
+        else if(tempKey==3) HeatingController.tempRoom1 = Integer.parseInt(lbTempSetting.getText());
+        else if(tempKey==4) HeatingController.tempRoom2 = Integer.parseInt(lbTempSetting.getText());
+        else if(tempKey==5) HeatingController.tempRoom3 = Integer.parseInt(lbTempSetting.getText());
+        
+        Stage dialog = (Stage)btnConfirm.getScene().getWindow();
+        dialog.close();
+        
+    }
+    
+     private void handleBtnCancel(ActionEvent e){
+         Stage dialog = (Stage)btnCancel.getScene().getWindow();
+         dialog.close();
     }
     
 }

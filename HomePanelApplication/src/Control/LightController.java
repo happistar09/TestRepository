@@ -11,8 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 public class LightController implements Initializable {
@@ -45,6 +48,16 @@ public class LightController implements Initializable {
         private ImageView imageRoom2;
         @FXML
         private ImageView imageRoom3;
+        @FXML
+        private ImageView imgLightMain;
+        @FXML
+        private ImageView imgLightBig;
+        @FXML
+        private ImageView imgLightRoom1;
+        @FXML
+        private ImageView imgLightRoom2;
+        @FXML
+        private ImageView imgLightRoom3;
 
 @Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -62,11 +75,13 @@ public class LightController implements Initializable {
 		if((btnOnOffMain.getText()).equals("ON")){
 			btnOnOffMain.setText("OFF");
                         imageMain.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgLightMain.setImage(new Image(getClass().getResource("images/light_off.png").toString()));
                         System.out.println("거실 조명 OFF");
 		}
 		else{
 			btnOnOffMain.setText("ON");
                         imageMain.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgLightMain.setImage(new Image(getClass().getResource("images/light_on.png").toString()));
                         System.out.println("거실 조명 ON");
 		}
 	}
@@ -75,11 +90,13 @@ public class LightController implements Initializable {
 		if((btnOnOffBigRoom.getText()).equals("ON")){
 			btnOnOffBigRoom.setText("OFF");
                         imageBigRoom.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgLightBig.setImage(new Image(getClass().getResource("images/light_off.png").toString()));
                         System.out.println("안방 조명 OFF");
 		}
 		else{
 			btnOnOffBigRoom.setText("ON");
                         imageBigRoom.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgLightBig.setImage(new Image(getClass().getResource("images/light_on.png").toString()));
                         System.out.println("안방 조명 ON");
 		}
 	}
@@ -88,11 +105,13 @@ public class LightController implements Initializable {
 		if((btnOnOffRoom1.getText()).equals("ON")){
 			btnOnOffRoom1.setText("OFF");
                         imageRoom1.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgLightRoom1.setImage(new Image(getClass().getResource("images/light_off.png").toString()));
                         System.out.println("침실1 조명 OFF");
 		}
 		else{
 			btnOnOffRoom1.setText("ON");
                         imageRoom1.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgLightRoom1.setImage(new Image(getClass().getResource("images/light_on.png").toString()));
                         System.out.println("침실1 조명 ON");
 		}
 	}
@@ -101,11 +120,13 @@ public class LightController implements Initializable {
 		if((btnOnOffRoom2.getText()).equals("ON")){
 			btnOnOffRoom2.setText("OFF");
                         imageRoom2.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgLightRoom2.setImage(new Image(getClass().getResource("images/light_off.png").toString()));
                         System.out.println("침실2 조명 OFF");
 		}
 		else{
 			btnOnOffRoom2.setText("ON");
                         imageRoom2.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgLightRoom2.setImage(new Image(getClass().getResource("images/light_on.png").toString()));
                         System.out.println("침실2 조명 ON");
 		}
 	}
@@ -114,44 +135,40 @@ public class LightController implements Initializable {
 		if((btnOnOffRoom3.getText()).equals("ON")){
 			btnOnOffRoom3.setText("OFF");
                         imageRoom3.setImage(new Image(getClass().getResource("images/off.png").toString()));
+                        imgLightRoom3.setImage(new Image(getClass().getResource("images/light_off.png").toString()));
                         System.out.println("침실3 조명 OFF");
 		}
 		else{
 			btnOnOffRoom3.setText("ON");
-                        imageRoom1.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imageRoom3.setImage(new Image(getClass().getResource("images/on.png").toString()));
+                        imgLightRoom3.setImage(new Image(getClass().getResource("images/light_on.png").toString()));
                         System.out.println("침실3 조명 ON");
 		}
 	}
     
         private void handleBtnAllOn(ActionEvent e){
-                btnOnOffMain.setText("ON");
-                imageMain.setImage(new Image(getClass().getResource("images/on.png").toString()));
-                btnOnOffBigRoom.setText("ON");
-                imageBigRoom.setImage(new Image(getClass().getResource("images/on.png").toString()));   
-                btnOnOffRoom1.setText("ON");
-                imageRoom1.setImage(new Image(getClass().getResource("images/on.png").toString())); 
-                btnOnOffRoom2.setText("ON");
-                imageRoom2.setImage(new Image(getClass().getResource("images/on.png").toString()));
-                btnOnOffRoom3.setText("ON");
-                imageRoom3.setImage(new Image(getClass().getResource("images/on.png").toString()));
-                System.out.println("전체 조명 ON");
+            if((btnOnOffMain.getText()).equals("OFF")) handleBtnOnOffMain(e);
+            if((btnOnOffBigRoom.getText()).equals("OFF")) handleBtnOnOffBigRoom(e);
+            if((btnOnOffRoom1.getText()).equals("OFF")) handleBtnOnOffRoom1(e);
+            if((btnOnOffRoom2.getText()).equals("OFF")) handleBtnOnOffRoom2(e);
+            if((btnOnOffRoom3.getText()).equals("OFF")) handleBtnOnOffRoom3(e);
+            try {            
+                showNotification("알림", "전체 조명 ON");
+            } catch (IOException ex) {}
           
           
         }
         
         private void handleBtnAllOff(ActionEvent e){
-                btnOnOffMain.setText("OFF");
-                imageMain.setImage(new Image(getClass().getResource("images/off.png").toString()));
-                btnOnOffBigRoom.setText("OFF");
-                imageBigRoom.setImage(new Image(getClass().getResource("images/off.png").toString()));   
-                btnOnOffRoom1.setText("OFF");
-                imageRoom1.setImage(new Image(getClass().getResource("images/off.png").toString())); 
-                btnOnOffRoom2.setText("OFF");
-                imageRoom2.setImage(new Image(getClass().getResource("images/off.png").toString()));
-                btnOnOffRoom3.setText("OFF");
-                imageRoom3.setImage(new Image(getClass().getResource("images/off.png").toString()));
-                System.out.println("전체 조명 OFF");
-              
+           
+            if((btnOnOffMain.getText()).equals("ON")) handleBtnOnOffMain(e);
+            if((btnOnOffBigRoom.getText()).equals("ON")) handleBtnOnOffBigRoom(e);
+            if((btnOnOffRoom1.getText()).equals("ON")) handleBtnOnOffRoom1(e);
+            if((btnOnOffRoom2.getText()).equals("ON")) handleBtnOnOffRoom2(e);
+            if((btnOnOffRoom3.getText()).equals("ON")) handleBtnOnOffRoom3(e);
+            try {            
+                showNotification("알림", "전체 조명 OFF");
+            } catch (IOException ex) {}  
         }
 	
 	private void handleBtnBack(ActionEvent e){
@@ -167,5 +184,18 @@ public class LightController implements Initializable {
         private void handleBtnHome(ActionEvent e){
 		
 	}
+        private void showNotification(String type, String message) throws IOException {
+            Popup popup = new Popup();
+            HBox hbox = (HBox) FXMLLoader.load(getClass().getResource("popup.fxml"));
+            ImageView imgMessage =(ImageView) hbox.lookup("#imgMessage");
+            Label lbMessage = (Label) hbox.lookup("#lbMessage");
+            if(type.equals("알림")) imgMessage.setImage(new Image(getClass().getResource("images/dialog-info.png").toString()));        
+            else if(type.equals("경고")) imgMessage.setImage(new Image(getClass().getResource("images/dialog-warning.png").toString()));   
+            lbMessage.setText(message);        
+            popup.getContent().add(hbox);
+            popup.setAutoHide(true);
+            Stage primaryStage = (Stage)btnBack.getScene().getWindow();
+            popup.show(primaryStage);        
+        }
 	
 }

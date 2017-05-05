@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="380.0" fitWidth="600.0" pickOnBounds="true">
          <image>
-            <Image url="@images/background10.jpg" />
+            <Image url="@images/background_black.jpg" />
          </image>
       </ImageView>
       <Separator layoutX="19.0" layoutY="68.0" prefHeight="0.0" prefWidth="562.0" />
@@ -74,7 +74,22 @@
          </font>
       </Label>
       <Separator layoutX="24.0" layoutY="291.0" prefHeight="0.0" prefWidth="562.0" />
-      <Button layoutX="186.0" layoutY="323.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="390.0" layoutY="323.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnConfirm" layoutX="197.0" layoutY="306.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/confirm.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnCancel" layoutX="367.0" layoutY="306.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/cancel.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
