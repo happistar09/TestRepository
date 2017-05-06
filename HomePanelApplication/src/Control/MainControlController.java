@@ -11,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
@@ -51,6 +50,7 @@ public class MainControlController implements Initializable {
             Scene scene = new Scene(parent);
             Stage primaryStage = (Stage) btnLight.getScene().getWindow();
             primaryStage.setScene(scene);
+            System.out.println("1");
 
         } catch (IOException ex) {
         }
