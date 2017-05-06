@@ -40,6 +40,7 @@ public class MainControlController implements Initializable {
             Stage primaryStage = (Stage) btnHeating.getScene().getWindow();
             primaryStage.setScene(scene);
             System.out.println("2");
+            System.out.println("3");
 
         } catch (IOException ex) {
         }
