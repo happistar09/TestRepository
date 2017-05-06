@@ -11,43 +11,51 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
 public class MainControlController implements Initializable {
 
-	@FXML
-	private Button btnHeating;
-	@FXML
-	private Button btnLight;
-	@FXML
-	private AnchorPane anchorPane;
+    @FXML
+    private Button btnHeating;
+    @FXML
+    private Button btnLight;
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private StackPane stackPane;
+    @FXML
+    private Button btnHome;
+    @FXML
+    private Button btnBack;
         
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        btnHeating.setOnAction(e -> handleBtnHeating(e));
+        btnLight.setOnAction(e -> handleBtnLight(e));
+    }
 
+    private void handleBtnHeating(ActionEvent e) {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("Heating.fxml"));
+            Scene scene = new Scene(parent);
+            Stage primaryStage = (Stage) btnHeating.getScene().getWindow();
+            primaryStage.setScene(scene);
 
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		btnHeating.setOnAction(e -> handleBtnHeating(e));
-		btnLight.setOnAction(e -> handleBtnLight(e));
-	}	
-	private void handleBtnHeating(ActionEvent e) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("Heating.fxml"));
-			Scene scene = new Scene(parent);			
-			Stage primaryStage = (Stage)btnHeating.getScene().getWindow();
-			primaryStage.setScene(scene);
-			
-		} catch (IOException ex) {	}
-	}
-	
-	private void handleBtnLight(ActionEvent e) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("Light.fxml"));
-			Scene scene = new Scene(parent);			
-			Stage primaryStage = (Stage)btnLight.getScene().getWindow();
-			primaryStage.setScene(scene);
-			
-		} catch (IOException ex) {	}
-	}
-	
+        } catch (IOException ex) {
+        }
+    }
+
+    private void handleBtnLight(ActionEvent e) {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("Light.fxml"));
+            Scene scene = new Scene(parent);
+            Stage primaryStage = (Stage) btnLight.getScene().getWindow();
+            primaryStage.setScene(scene);
+
+        } catch (IOException ex) {
+        }
+    }
+
 }
