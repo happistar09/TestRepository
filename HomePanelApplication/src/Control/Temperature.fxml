@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="380.0" fitWidth="600.0" pickOnBounds="true">
          <image>
-            <Image url="@images/background_black.jpg" />
+            <Image url="@images/backgrounds/background.jpg" />
          </image>
       </ImageView>
       <Separator layoutX="19.0" layoutY="68.0" prefHeight="0.0" prefWidth="562.0" />
@@ -23,7 +23,7 @@
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/thermometer_on.png" />
+            <Image url="@images/icons/control/thermometer_on.png" />
          </image>
       </ImageView>
       <Label layoutX="287.0" layoutY="111.0" text="현재온도" textFill="WHITE">
@@ -50,7 +50,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/btnUp.png" />
+                  <Image url="@images/icons/control/btnUp.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -58,7 +58,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/btnDown.png" />
+                  <Image url="@images/icons/control/btnDown.png" />
                </image>
             </ImageView>
          </graphic>
@@ -78,7 +78,7 @@
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/confirm.png" />
+                  <Image url="@images/icons/control/confirm.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -86,7 +86,7 @@
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/cancel.png" />
+                  <Image url="@images/icons/control/cancel.png" />
                </image>
             </ImageView>
          </graphic>

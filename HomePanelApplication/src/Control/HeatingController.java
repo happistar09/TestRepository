@@ -349,9 +349,9 @@ public class HeatingController implements Initializable {
         ImageView imgMessage = (ImageView) hbox.lookup("#imgMessage");
         Label lbMessage = (Label) hbox.lookup("#lbMessage");
         if (type.equals("알림")) {
-            imgMessage.setImage(new Image(getClass().getResource("images/dialog-info.png").toString()));
+            imgMessage.setImage(new Image(getClass().getResource("images/icons/control/dialog-info.png").toString()));
         } else if (type.equals("경고")) {
-            imgMessage.setImage(new Image(getClass().getResource("images/dialog-warning.png").toString()));
+            imgMessage.setImage(new Image(getClass().getResource("images/icons/control/dialog-warning.png").toString()));
         }
         lbMessage.setText(message);
         popup.getContent().add(hbox);

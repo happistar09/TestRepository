@@ -13,7 +13,7 @@
    <children>
       <ImageView id="imgMessage" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/dialog-warning.png" />
+            <Image url="@images/icons/control/dialog-warning.png" />
          </image>
       </ImageView>
       <Label id="lbMessage" text="메세지가 왔습니다" textFill="White">

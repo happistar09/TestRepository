@@ -22,13 +22,11 @@ public class MainControlController implements Initializable {
     @FXML
     private Button btnLight;
     @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private StackPane stackPane;
-    @FXML
     private Button btnHome;
     @FXML
     private Button btnBack;
+    @FXML
+    private AnchorPane mainControl;
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
