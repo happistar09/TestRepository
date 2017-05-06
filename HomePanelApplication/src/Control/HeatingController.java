@@ -82,17 +82,16 @@ public class HeatingController implements Initializable {
         public static int tempRoom2=20;
         public static int tempRoom3=20;
         public static int tempNew=20;
-    @FXML
-    private ImageView imgFireMain;
-    @FXML
-    private ImageView imgFireBig;
-    @FXML
-    private ImageView imgFireRoom1;
-    @FXML
-    private ImageView imgFireRoom2;
-    @FXML
-    private ImageView imgFireRoom3;
-     
+        @FXML
+        private ImageView imgFireMain;
+        @FXML
+        private ImageView imgFireBig;
+        @FXML
+        private ImageView imgFireRoom1;
+        @FXML
+        private ImageView imgFireRoom2;
+        @FXML
+        private ImageView imgFireRoom3;     
         
 	
 	@Override
@@ -112,8 +111,10 @@ public class HeatingController implements Initializable {
                 btnTemperRoom2.setOnAction(e -> handleBtnTemperRoom2(e));
                 btnTemperRoom3.setOnAction(e -> handleBtnTemperRoom3(e));
                 
-	}	
-	private void handleBtnOnOffMain(ActionEvent e){	
+	}
+        
+	private void handleBtnOnOffMain(ActionEvent e){
+                //ON일때 버튼 누르면 OFF로 변환
 		if((btnOnOffMain.getText()).equals("ON")){
 			btnOnOffMain.setText("OFF");
                         imageMain.setImage(new Image(getClass().getResource("images/off.png").toString()));
@@ -121,6 +122,7 @@ public class HeatingController implements Initializable {
                         imgFireMain.setImage(new Image(getClass().getResource("images/fire_off.png").toString()));
                         System.out.println("거실 난방 OFF");
 		}
+                //OFF일때 버튼 누르면 ON으로 변환
 		else{
 			btnOnOffMain.setText("ON");
                         imageMain.setImage(new Image(getClass().getResource("images/on.png").toString()));
@@ -199,23 +201,27 @@ public class HeatingController implements Initializable {
 	}
     
         private void handleBtnAllOn(ActionEvent e){
+            //전체 OFF
             if((btnOnOffMain.getText()).equals("OFF")) handleBtnOnOffMain(e);
             if((btnOnOffBigRoom.getText()).equals("OFF")) handleBtnOnOffBigRoom(e);
             if((btnOnOffRoom1.getText()).equals("OFF")) handleBtnOnOffRoom1(e);
             if((btnOnOffRoom2.getText()).equals("OFF")) handleBtnOnOffRoom2(e);
             if((btnOnOffRoom3.getText()).equals("OFF")) handleBtnOnOffRoom3(e);
-            try {            
+            try {
+                //popup 알림
                 showNotification("알림", "전체 난방 ON");
             } catch (IOException ex) {}
         }
         
         private void handleBtnAllOff(ActionEvent e){
+            //전체 OFF
             if((btnOnOffMain.getText()).equals("ON")) handleBtnOnOffMain(e);
             if((btnOnOffBigRoom.getText()).equals("ON")) handleBtnOnOffBigRoom(e);
             if((btnOnOffRoom1.getText()).equals("ON")) handleBtnOnOffRoom1(e);
             if((btnOnOffRoom2.getText()).equals("ON")) handleBtnOnOffRoom2(e);
             if((btnOnOffRoom3.getText()).equals("ON")) handleBtnOnOffRoom3(e);
             try {            
+                //popup 알림
                 showNotification("알림", "전체 난방 OFF");
             } catch (IOException ex) {}
               
@@ -237,7 +243,9 @@ public class HeatingController implements Initializable {
         
         private void handleBtnTemperMain(ActionEvent e){  
                 try {             
+                    //ON 상태일때만 온도설정 활성화
                     if((btnOnOffMain.getText()).equals("ON")){
+                        //방 정보를 문자열과 키값으로 넘겨줌    
                         tempTitle="거실";
                         tempNew=tempMain;
                         TemperatureController.tempKey=1;

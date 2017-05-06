@@ -38,7 +38,7 @@ public class RootController implements Initializable {
 
 		private void handleBtnLogin(ActionEvent e)  {
 				try {
-						Parent parent = FXMLLoader.load(getClass().getResource("login.fxml"));
+						Parent parent = FXMLLoader.load(getClass().getResource("login/login.fxml"));
 						stackPane.getChildren().add(parent);
 						
 						parent.setTranslateX(350);	//초기값: 350

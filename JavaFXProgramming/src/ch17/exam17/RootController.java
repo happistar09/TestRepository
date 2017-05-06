@@ -37,7 +37,7 @@ public class RootController implements Initializable {
         });
         
         cb1.setOnAction(e->{
-           handleChkAction(e); 
+           handleChkAction(e);                      
         });
         
         cb2.setOnAction(e->{

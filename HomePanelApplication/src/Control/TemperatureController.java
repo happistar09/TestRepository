@@ -45,14 +45,17 @@ public class TemperatureController implements Initializable {
     }    
     
     private void handleBtnUp(ActionEvent e){     
+        //버튼 숫자 up
         lbTempSetting.setText(String.valueOf(Integer.parseInt(lbTempSetting.getText())+1));
     }
     
-    private void handleBtnDown(ActionEvent e){     
+    private void handleBtnDown(ActionEvent e){    
+        //버튼 숫자 down
         lbTempSetting.setText(String.valueOf(Integer.parseInt(lbTempSetting.getText())-1));
     }
     
     private void handleBtnConfirm(ActionEvent e){
+        //각 방의 설정온도 저장
         if(tempKey==1) HeatingController.tempMain = Integer.parseInt(lbTempSetting.getText());
         else if(tempKey==2) HeatingController.tempBig = Integer.parseInt(lbTempSetting.getText());
         else if(tempKey==3) HeatingController.tempRoom1 = Integer.parseInt(lbTempSetting.getText());
