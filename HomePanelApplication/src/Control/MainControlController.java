@@ -52,7 +52,7 @@ public class MainControlController implements Initializable {
             Scene scene = new Scene(parent);
             Stage primaryStage = (Stage) btnLight.getScene().getWindow();
             primaryStage.setScene(scene);
-            System.out.println("1");
+            
 
         } catch (IOException ex) {
         }
