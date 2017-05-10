@@ -14,7 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
-public class MainControlController implements Initializable {
+public class ControlController implements Initializable {
 
     @FXML
     private Button btnHeating;
