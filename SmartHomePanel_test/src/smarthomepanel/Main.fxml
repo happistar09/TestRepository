@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smarthomepanel.MainController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bg">
+         <children>
+            <Button fx:id="btnVideo" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="348.0" layoutY="117.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="보기" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="btnVideoImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons/eye(white).png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnControl" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="548.0" layoutY="117.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="제어" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="btnControlImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons/ammeter(white).png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnChart" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="149.0" layoutY="297.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="사용량" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="btnChartImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons/chart(white).png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnNotice" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="348.0" layoutY="297.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="공지" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="btnNoticeImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons/notepad(white).png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnSetting" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="548.0" layoutY="297.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="설정" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="btnSettingImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons/settings(white).png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label layoutX="694.0" layoutY="25.0" text="택배 알림" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label fx:id="lblTime" layoutX="20.0" layoutY="25.0" text="시간정보" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Button fx:id="btnCall" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="148.0" layoutY="117.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="107.0" style="-fx-background-color: transparent;" text="호출" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="btnCallImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons/call.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="btnHome" fx:id="btnHome" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="367.0" layoutY="3.0" mnemonicParsing="false" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </Button>
+            <Button contentDisplay="TOP" layoutX="36.0" layoutY="229.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" textFill="WHITE" />
+            <ImageView fx:id="packImage" fitWidth="30.0" layoutX="658.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/package.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="10.0" layoutY="70.0" prefHeight="0.0" prefWidth="780.0" />
+            <ImageView fx:id="btnHomeImage" fitWidth="45.0" layoutX="378.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/home(white).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="40.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/back(white).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

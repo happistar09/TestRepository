@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="heatingControl" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smarthomepanel.HeatingController">
+   <children>
+      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/backgrounds/background.jpg" />
+         </image>
+      </ImageView>
+      <Separator layoutY="65.0" prefHeight="6.0" prefWidth="800.0" style="-fx-border-color: skyblue;" />
+      <Label layoutX="81.0" layoutY="15.0" prefHeight="47.0" prefWidth="86.0" text="난방 설정" textFill="WHITE">
+         <font>
+            <Font name="휴먼옛체" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgFireMain" fitHeight="30.0" fitWidth="30.0" layoutX="89.0" layoutY="95.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icons/control/fire_on.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="205.0" layoutY="97.0" prefHeight="41.0" prefWidth="68.0" text="거실" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutY="134.0" prefHeight="3.0" prefWidth="800.0" style="-fx-border-color: gray;" />
+      <Separator layoutY="181.0" prefHeight="3.0" prefWidth="800.0" style="-fx-border-color: gray;" />
+      <Separator layoutY="228.0" prefHeight="3.0" prefWidth="800.0" style="-fx-border-color: gray;" />
+      <Separator layoutY="274.0" prefHeight="3.0" prefWidth="800.0" style="-fx-border-color: gray;" />
+      <Separator layoutY="321.0" prefHeight="3.0" prefWidth="800.0" style="-fx-border-color: gray;" />
+      <Label layoutX="205.0" layoutY="145.0" prefHeight="41.0" prefWidth="68.0" text="안방" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="205.0" layoutY="193.0" prefHeight="41.0" prefWidth="68.0" text="침실1" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="205.0" layoutY="242.0" prefHeight="41.0" prefWidth="68.0" text="침실2" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="205.0" layoutY="288.0" prefHeight="41.0" prefWidth="68.0" text="침실3" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnOnOffMain" layoutX="546.0" layoutY="91.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="ON" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fx:id="imageMain" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnTemperMain" layoutX="669.0" layoutY="84.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="온도설정" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fx:id="imgTempMain" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/thermometer_on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="휴먼고딕" size="12.0" />
+         </font></Button>
+      <Separator layoutY="392.0" prefHeight="3.0" prefWidth="800.0" style="-fx-border-color: white;" />
+      <Button fx:id="btnAllOn" layoutY="398.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="전체켜기" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/on.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnAllOff" layoutX="400.0" layoutY="398.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="전체끄기" textFill="WHITE">
+         <font>
+            <Font name="휴먼고딕" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/off.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnBack" layoutX="658.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/icons/control/back(white).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnHome" layoutX="731.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/icons/control/home_shadow.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="16.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icons/control/fire.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgFireBig" fitHeight="30.0" fitWidth="30.0" layoutX="89.0" layoutY="143.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icons/control/fire_on.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgFireRoom1" fitHeight="30.0" fitWidth="30.0" layoutX="89.0" layoutY="193.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icons/control/fire_on.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgFireRoom2" fitHeight="30.0" fitWidth="30.0" layoutX="89.0" layoutY="241.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icons/control/fire_on.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgFireRoom3" fitHeight="30.0" fitWidth="30.0" layoutX="89.0" layoutY="289.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icons/control/fire_on.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnOnOffBigRoom" layoutX="546.0" layoutY="141.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="ON" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imageBigRoom" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnOnOffRoom1" layoutX="546.0" layoutY="189.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="ON" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imageRoom1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnOnOffRoom2" layoutX="546.0" layoutY="236.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="ON" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imageRoom2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnOnOffRoom3" layoutX="546.0" layoutY="283.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="ON" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imageRoom3" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnTemperBigRoom" layoutX="669.0" layoutY="136.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="온도설정" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="휴먼고딕" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imgTempBig" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/thermometer_on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnTemperRoom1" layoutX="669.0" layoutY="184.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="온도설정" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="휴먼고딕" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imgTempRoom1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/thermometer_on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnTemperRoom2" layoutX="669.0" layoutY="232.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="온도설정" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="휴먼고딕" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imgTempRoom2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/thermometer_on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnTemperRoom3" layoutX="669.0" layoutY="279.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: transparent;" text="온도설정" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="휴먼고딕" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="imgTempRoom3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons/control/thermometer_on.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Separator layoutX="400.0" layoutY="398.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: gray;" />
+   </children>
+</AnchorPane>

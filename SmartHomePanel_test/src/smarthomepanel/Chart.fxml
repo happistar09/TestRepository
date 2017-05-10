@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="chart" opacity="1.0" prefHeight="480.0" prefWidth="800.0" styleClass="bg" stylesheets="@chartview.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smarthomepanel.ChartController">
+    <children>
+        <BarChart id="elecChart" fx:id="elecChart" alternativeRowFillVisible="false" barGap="10.0" horizontalGridLinesVisible="false" layoutX="106.0" layoutY="140.0" prefHeight="200.0" prefWidth="190.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+            <effect>
+                <DropShadow />
+            </effect>
+        </BarChart>
+        <BarChart fx:id="waterChart" alternativeRowFillVisible="false" barGap="10.0" horizontalGridLinesVisible="false" layoutX="311.0" layoutY="140.0" prefHeight="200.0" prefWidth="190.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+            <effect>
+                <DropShadow />
+            </effect>
+        </BarChart>
+        <BarChart fx:id="gasChart" alternativeRowFillVisible="false" barGap="10.0" horizontalGridLinesVisible="false" layoutX="516.0" layoutY="140.0" prefHeight="200.0" prefWidth="190.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+            <effect>
+                <DropShadow />
+            </effect>
+        </BarChart>
+        <Label layoutX="158.0" layoutY="115.0" text="전기(kWh)" textFill="WHITE">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="383.0" layoutY="115.0" text="수도(m³)" textFill="WHITE">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="576.0" layoutY="115.0" text="가스(m³)" textFill="WHITE">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="21.0" layoutY="371.0" prefHeight="18.0" prefWidth="130.0" text="금월 예상금액(원)" textFill="WHITE">
+            <font>
+                <Font name="Dotum" size="16.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblNotice" alignment="CENTER" layoutX="154.0" layoutY="413.0" text="전기사용량, 수도사용량, 가스사용량이 평형 평균보다 높습니다." textFill="#ee1212">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblTitle" alignment="CENTER" layoutX="298.0" layoutY="24.0" text="00월 에너지 사용량" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+        <Button id="btnHome" fx:id="btnHome" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="32.0" layoutY="206.0" mnemonicParsing="false" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <font>
+                <Font name="Segoe UI Black" size="12.0" />
+            </font>
+         <graphic>
+                <ImageView fx:id="btnHomeImage" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/icons/back(white).png" />
+                    </image>
+                </ImageView>
+         </graphic>
+        </Button>
+        <Label fx:id="lblElecCharge" alignment="CENTER" layoutX="158.0" layoutY="340.0" prefHeight="21.0" prefWidth="130.0" textFill="#9ac1e5">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="21.0" layoutY="342.0" text="현재 사용금액(원)" textFill="WHITE">
+            <font>
+                <Font name="Dotum" size="16.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblElecChargep" alignment="CENTER" layoutX="158.0" layoutY="370.0" prefHeight="21.0" prefWidth="130.0" textFill="#9ac1e5">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblWaterChargep" alignment="CENTER" layoutX="359.0" layoutY="366.0" prefHeight="21.0" prefWidth="130.0" textFill="#9ac1e5">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblWaterCharge" alignment="CENTER" layoutX="359.0" layoutY="336.0" prefHeight="21.0" prefWidth="130.0" textFill="#9ac1e5">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblGasCharge" alignment="CENTER" layoutX="565.0" layoutY="341.0" prefHeight="21.0" prefWidth="130.0" textFill="#9ac1e5">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblGasChargep" alignment="CENTER" layoutX="565.0" layoutY="371.0" prefHeight="21.0" prefWidth="130.0" textFill="#9ac1e5">
+            <font>
+                <Font name="Dotum" size="20.0" />
+            </font>
+        </Label>
+      <Separator layoutX="10.0" layoutY="70.0" prefHeight="0.0" prefWidth="780.0" />
+      <Label fx:id="lblTime" layoutX="20.0" layoutY="25.0" text="시간정보" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
