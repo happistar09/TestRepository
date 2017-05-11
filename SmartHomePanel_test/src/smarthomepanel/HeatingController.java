@@ -101,11 +101,11 @@ public class HeatingController implements Initializable {
     Image switch_on = new Image(getClass().getResource("images/icons/control/on.png").toString());
     Image thermometer_on = new Image(getClass().getResource("images/icons/control/thermometer_on.png").toString());
     Image fire_on = new Image(getClass().getResource("images/icons/control/fire_on.png").toString());
-    public static String onOffMain = "ON";
-    public static String onOffBig = "ON";
-    public static String onOffRoom1 = "ON";
-    public static String onOffRoom2 = "ON";
-    public static String onOffRoom3 = "ON";
+    public static String onOffMain = "OFF";
+    public static String onOffBig = "OFF";
+    public static String onOffRoom1 = "OFF";
+    public static String onOffRoom2 = "OFF";
+    public static String onOffRoom3 = "OFF";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -14,10 +14,12 @@
 				"model": "승용차",
 				"company": "현대",
 				"speed": 0,
+				//메소드
 				"start" : function(){
 					console.log("시동을 겁니다.");
 				},
 				"setSpeed" : function(speed){
+					//필드변수 사용할때 this 필수
 					this.speed = speed;
 				},
 				"getSpeed" : function(){

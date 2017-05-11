@@ -51,8 +51,7 @@
 		<div>
 			<%request.getAttribute("name2");%>	<br/>
 			이름: ${name2} <br/>			
-			이름: ${member2.name} <br/>
-			
+			이름: ${member2.name} <br/>			
 			나이: ${member2.age}
 		</div>
 		

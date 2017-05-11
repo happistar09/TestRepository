@@ -8,6 +8,7 @@
 		<script src="/WebApplication/resources/jquery/jquery.js" type="text/javascript"></script>
 		<script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 		<script>
+			//function은 프로그램이 body부분까지 실행되고 나서 실행된다 (그것때문에 사용)
 			$(function(){
 				var img = $("#img1");
 				img.attr("src", "/WebApplication/resources/images/photo01.jpg");

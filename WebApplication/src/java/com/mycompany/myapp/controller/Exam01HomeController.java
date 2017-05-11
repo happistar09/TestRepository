@@ -10,6 +10,7 @@ public class Exam01HomeController {
 	public String home(){
 		System.out.println("home()");
 		return "home";
+		//앞에 WEB-INF/views		뒤에 .jsp 생략
 	}			
 	
 }

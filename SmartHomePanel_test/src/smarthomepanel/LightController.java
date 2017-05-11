@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -68,11 +69,13 @@ public class LightController implements Initializable {
     Image light_off = new Image(getClass().getResource("images/icons/control/light_off.png").toString());
     Image switch_on = new Image(getClass().getResource("images/icons/control/on.png").toString());
     Image light_on = new Image(getClass().getResource("images/icons/control/light_on.png").toString());
-    public static String onOffMain = "ON";
-    public static String onOffBig = "ON";
-    public static String onOffRoom1 = "ON";
-    public static String onOffRoom2 = "ON";
-    public static String onOffRoom3 = "ON";
+    public static String onOffMain = "OFF";
+    public static String onOffBig = "OFF";
+    public static String onOffRoom1 = "OFF";
+    public static String onOffRoom2 = "OFF";
+    public static String onOffRoom3 = "OFF";
+	@FXML
+	private Button btnPlan;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,6 +90,7 @@ public class LightController implements Initializable {
         btnHome.setOnAction(e -> handleBtnHome(e));
         btnAllOn.setOnAction(e -> handleBtnAllOn(e));
         btnAllOff.setOnAction(e -> handleBtnAllOff(e));
+		btnPlan.setOnAction(e -> handleBtnPlan(e));
     }
 
     private void handleBtnOnOffMain(ActionEvent e) {
@@ -201,6 +205,25 @@ public class LightController implements Initializable {
         timeLine.getKeyFrames().add(keyFrame);
         timeLine.play();
     }
+		
+	private void handleBtnPlan(ActionEvent e) {
+		try {
+            Parent parent = FXMLLoader.load(getClass().getResource("Plan.fxml"));
+            StackPane rootPane = (StackPane) btnHome.getScene().getRoot();
+            rootPane.getChildren().add(parent);
+            parent.setOpacity(0);
+            KeyValue keyValue = new KeyValue(parent.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+            Timeline timeLine = new Timeline();
+            timeLine.getKeyFrames().add(keyFrame);
+            timeLine.play();
+
+        } catch (IOException ex) {
+        }
+		
+	}
+	
+	
 
     private void showNotification(String type, String message) throws IOException {
         Popup popup = new Popup();

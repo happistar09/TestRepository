@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lightbulb.rootController">
+    <children>
+      <ImageView fx:id="planImage" fitHeight="374.0" fitWidth="513.0" layoutX="136.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@투명평면도.png" />
+         </image></ImageView>
+      <ImageView fx:id="livingroomImage" fitHeight="137.0" fitWidth="147.0" layoutX="351.0" layoutY="262.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@livingroom.png" />
+         </image>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </ImageView>
+      <ImageView fx:id="imgLightMain" fitHeight="32.0" fitWidth="31.0" layoutX="409.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lightbulb.png" />
+         </image></ImageView>
+      <Button fx:id="btnLight" layoutX="109.0" layoutY="79.0" mnemonicParsing="false" text="Button" />
+      <ImageView fx:id="imgLightBigRoom" fitHeight="32.0" fitWidth="31.0" layoutX="553.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lightbulb.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgLightRoom2" fitHeight="32.0" fitWidth="31.0" layoutX="286.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lightbulb.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgLightRoom3" fitHeight="32.0" fitWidth="31.0" layoutX="186.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lightbulb.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgLightKitchen" fitHeight="32.0" fitWidth="31.0" layoutX="409.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lightbulb.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="557.0" layoutY="268.0" text="안방">
+         <font>
+            <Font name="HYGothic-Extra" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="413.0" layoutY="178.0" text="주방" />
+      <Label layoutX="287.0" layoutY="307.0" text="침실1">
+         <font>
+            <Font name="HYGothic-Extra" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="186.0" layoutY="307.0" text="침실2">
+         <font>
+            <Font name="HYGothic-Extra" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnBigRoom" layoutX="505.0" layoutY="226.0" mnemonicParsing="false" prefHeight="124.0" prefWidth="125.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnRoom2" layoutX="152.0" layoutY="266.0" mnemonicParsing="false" prefHeight="118.0" prefWidth="102.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnRoom1" layoutX="260.0" layoutY="266.0" mnemonicParsing="false" prefHeight="118.0" prefWidth="84.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnKitchen" layoutX="366.0" layoutY="167.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="116.0" style="-fx-background-color: transparent;" />
+    </children>
+</AnchorPane>

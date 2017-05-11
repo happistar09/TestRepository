@@ -9,14 +9,16 @@
 		<script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 		<script>
 			function changeDivContent(){
+				//내용 전체를 바꿈
 				$("#div1").html(" <p>변경된 내용</p>");
+				//내용을 추가
 				$("#div2").append(" <p>변경된 내용</p>");				
 			}
 			
 			function changeCSS(){
+				//속성 변경
 				$("#div3").css("background-color", "#FFFF00");
-				$("#div3").css("width", "300px");
-						
+				$("#div3").css("width", "300px");						
 			}
 		</script>
 	</head>

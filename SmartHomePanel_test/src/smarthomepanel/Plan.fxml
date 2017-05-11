@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smarthomepanel.PlanController">
+   <children>
+      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/backgrounds/background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icons/control/ground.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="94.0" layoutY="332.0" text="침실1" />
+      <Label layoutX="238.0" layoutY="332.0" text="침실2" />
+      <Label layoutX="436.0" layoutY="347.0" text="거실" />
+      <Label layoutX="660.0" layoutY="294.0" prefHeight="15.0" prefWidth="32.0" text="안방" />
+      <Label layoutX="432.0" layoutY="176.0" text="주방" />
+      <ImageView fx:id="imgRoom1" fitHeight="30.0" fitWidth="30.0" layoutX="95.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icons/control/light_off2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgRoom2" fitHeight="30.0" fitWidth="30.0" layoutX="239.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icons/control/light_off2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgMain" fitHeight="30.0" fitWidth="30.0" layoutX="433.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icons/control/light_off2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgBig" fitHeight="30.0" fitWidth="30.0" layoutX="659.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icons/control/light_off2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgKitchen" fitHeight="30.0" fitWidth="30.0" layoutX="429.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icons/control/light_off2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnMain" layoutX="337.0" layoutY="271.0" mnemonicParsing="false" prefHeight="181.0" prefWidth="226.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnBig" layoutX="575.0" layoutY="245.0" mnemonicParsing="false" prefHeight="146.0" prefWidth="195.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnKitchen" layoutX="354.0" layoutY="142.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="187.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnRoom1" layoutX="21.0" layoutY="304.0" mnemonicParsing="false" prefHeight="131.0" prefWidth="166.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnRoom2" layoutX="194.0" layoutY="289.0" mnemonicParsing="false" prefHeight="146.0" prefWidth="130.0" style="-fx-background-color: transparent;" />
+   </children>
+</AnchorPane>
