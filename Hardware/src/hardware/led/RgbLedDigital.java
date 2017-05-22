@@ -8,14 +8,14 @@ import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
-public class RgbLed {
+public class RgbLedDigital {
 private GpioPinDigitalOutput redPin;
 	//디지털 출력 핀 객체 필드
 private GpioPinDigitalOutput greenPin;
 private GpioPinDigitalOutput bluePin;
 	
 	//Constructor
-	public RgbLed(Pin redPinNo, Pin greenPinNo, Pin bluePinNo){
+	public RgbLedDigital(Pin redPinNo, Pin greenPinNo, Pin bluePinNo){
 		//GpioController 객체 얻기
 		GpioController gpioController = GpioFactory.getInstance();
 		//디지털 출력핀 생성
@@ -68,7 +68,7 @@ private GpioPinDigitalOutput bluePin;
 	
 	
 	public static void main(String[] args) throws InterruptedException {
-		RgbLed test = new RgbLed(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
+		RgbLedDigital test = new RgbLedDigital(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
 		
 				
 		while(true) {
