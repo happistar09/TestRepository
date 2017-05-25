@@ -18,8 +18,9 @@ public class RgbLedPWM {
 		GpioController gpioController = GpioFactory.getInstance();
 		//소프트웨어 PWM 출력 핀 객체 생성
 		redPin = gpioController.provisionSoftPwmOutputPin(redPinNo);
-		bluePin= gpioController.provisionSoftPwmOutputPin(bluePinNo);
 		greenPin= gpioController.provisionSoftPwmOutputPin(greenPinNo);
+		bluePin= gpioController.provisionSoftPwmOutputPin(bluePinNo);
+		
 		
 		//제어 단계를 255 단계
 		redPin.setPwmRange(255);
