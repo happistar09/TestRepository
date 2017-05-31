@@ -84,6 +84,14 @@
 		<h4>리다이렉트(재요청)</h4>
 		<a href="redirect/list" class="btn btn-primary">게시물 목록</a>
 		<a href="redirect/write" class="btn btn-primary">게시물 쓰기</a>
+		
+		<h4>JDBC</h4>
+		<a href="jdbc/exam01" class="btn btn-primary">게시물 쓰기</a>
+		<a href="jdbc/exam02" class="btn btn-primary">게시물 쓰기</a>
+		<a href="jdbc/exam03" class="btn btn-primary">회원 가입</a>
+		<a href="jdbc/exam04" class="btn btn-primary">게시물 목록</a>
+		<a href="jdbc/exam05" class="btn btn-primary">페이지 목록</a>
+		<a href="jdbc/exam06" class="btn btn-primary">멤버 목록</a>
 
 	</body>
 </html>
