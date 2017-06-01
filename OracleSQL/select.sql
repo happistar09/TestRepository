@@ -93,3 +93,12 @@ select count(bno) from board;
 select count(boriginalfilename) from board;
 --특정 조건에 맞는 행 수 구하기
 select count(*) from board where bwriter <> '홍길동';
+
+select * 
+from (  select rownum as r, mid, mname, mpassword, mdate, mtel
+from (
+		  select mid, mname, mpassword, mdate from board order by mid desc 
+			 ) 
+   where rownum<=10 
+		) 
+		where r>=20 ;

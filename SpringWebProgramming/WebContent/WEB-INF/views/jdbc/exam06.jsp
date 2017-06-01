@@ -12,7 +12,7 @@
 		<script src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<h4>게시물 목록</h4>
+		<h4>멤버 목록</h4>
 		<hr/>		
 		<table class="table table-bordered" style="margin-top: 20px; width:1000px">
 			<tr class="success">
@@ -29,7 +29,7 @@
 			<c:forEach var="b" items="${list}">
 				<tr>
 					<td>${b.mid}</td>
-					<td>${b.mname}</td>
+					<td><a href="exam06Detail?mid=${b.mid}">${b.mname}</a></td>
 					<td>${b.mpassword}</td>
 					<td>${b.mdate}</td>
 					<td>${b.mtel}</td>					
