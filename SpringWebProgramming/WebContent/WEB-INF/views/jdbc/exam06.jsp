@@ -24,6 +24,9 @@
 				<td>이메일</td>
 				<td>나이</td>
 				<td>주소</td>
+				<td>사진</td>
+				<td>사진 다운로드</td>
+				
 				
 			</tr>
 			<c:forEach var="b" items="${list}">
@@ -35,7 +38,9 @@
 					<td>${b.mtel}</td>					
 					<td>${b.memail}</td>					
 					<td>${b.mage}</td>
-					<td>${b.maddress}</td>
+					<td>${b.maddress}</td>	
+					<td><img src="../file/exam04" width="100px" height="100px"/></td>
+					<td><a href="../file/exam04" class="btn btn-primary">다운로드</a></td>						
 				</tr>
 			</c:forEach>
 		</table>
