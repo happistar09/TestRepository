@@ -272,10 +272,12 @@ public class Exam12JdbcController {
 		return "redirect:/jdbc/exam06";
 	}
 	@RequestMapping("file/exam04")
-	public void download(HttpServletResponse response, @RequestHeader("User-Agent") String userAgent) throws Exception{
+	public void download(HttpServletResponse response, @RequestHeader("User-Agent") String userAgent, String mid) throws Exception{
 		//응답 HTTP 헤더행을 추가
 		//1) 파일의 이름
-		String fileName = "사막.jpg";
+		String msavedfilename="";
+		msavedfilename = service.memberDownload(mid);
+		String fileName = msavedfilename;
 		System.out.println(fileName);
 		
 		// 한글이름 파일을 나타내주기 위한 코드
@@ -292,7 +294,7 @@ public class Exam12JdbcController {
 		//2) 파일의 종류
 		response.addHeader("Content-Type", "image/jpeg");
 		//3) 파일의 크기
-		String realPath = servletContext.getRealPath("/WEB-INF/upload/사막.jpg");
+		String realPath = servletContext.getRealPath("/WEB-INF/upload/"+encodingFileName);
 		File file =new File(realPath);
 		long fileSize = file.length();
 		response.addHeader("Content-Length", String.valueOf(fileSize));

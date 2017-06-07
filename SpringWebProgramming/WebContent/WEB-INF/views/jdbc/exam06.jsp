@@ -40,7 +40,7 @@
 					<td>${b.mage}</td>
 					<td>${b.maddress}</td>	
 					<td><img src="../file/exam04" width="100px" height="100px"/></td>
-					<td><a href="../file/exam04" class="btn btn-primary">다운로드</a></td>						
+					<td><a href="../file/exam04?mid=${b.mid}" class="btn btn-primary">다운로드</a></td>						
 				</tr>
 			</c:forEach>
 		</table>

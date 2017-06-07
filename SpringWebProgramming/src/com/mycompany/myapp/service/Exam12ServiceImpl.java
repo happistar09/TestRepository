@@ -114,6 +114,14 @@ public class Exam12ServiceImpl implements Exam12Service {
 	public void memberDelete(String mid) {
 		dao.memberDelete(mid);		
 	}
+	
+@Override
+public String memberDownload(String mid) {
+	String msavedfilename="";
+	msavedfilename=dao.memberDownload(mid);
+	return msavedfilename;
+	
+}
 
 
 

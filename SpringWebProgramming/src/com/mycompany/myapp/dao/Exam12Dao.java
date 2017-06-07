@@ -21,4 +21,5 @@ public interface Exam12Dao {
 	public Exam12Member memberSelectByMid(String mid);	
 	public void memberUpdate(Exam12Member member);
 	public void memberDelete(String mid);
+	public String memberDownload(String mid);
 }
