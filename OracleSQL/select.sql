@@ -102,3 +102,5 @@ from (
    where rownum<=10 
 		) 
 		where r>=20 ;
+    
+  select msavedfilename from member where mid='id42';

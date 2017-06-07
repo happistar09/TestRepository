@@ -142,7 +142,7 @@ public class LCD1602 {
 		displayIPaddress(lcd1602);
 		Thread.sleep(5000);
 
-		//lcd1602.clear();
+		lcd1602.clear();
 	}
 
 	public static void displayIPaddress(LCD1602 lcd) throws Exception {

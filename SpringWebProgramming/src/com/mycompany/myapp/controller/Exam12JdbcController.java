@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mycompany.myapp.dto.Exam12Board;
+import com.mycompany.myapp.dto.Exam12Image;
 import com.mycompany.myapp.dto.Exam12Member;
 import com.mycompany.myapp.service.Exam12Service;
 
@@ -189,6 +190,7 @@ public class Exam12JdbcController {
 		service.boardDelete(bno);
 		return "redirect:/jdbc/exam05";
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping("/jdbc/exam06")
 	public String exam06(@RequestParam(defaultValue="1")int pageNo, Model model) {		
@@ -309,5 +311,125 @@ public class Exam12JdbcController {
 		os.close();				
 		
 	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	@RequestMapping("/jdbc/exam07")
+	public String exam07(@RequestParam(defaultValue="1")int pageNo, Model model) {		
+		//한 페이지를 구성하는 행 수
+		int rowsPerPage = 5;
+		//한 그룹을 구성하는 페이지 수
+		int pagesPerGroup = 5;
+		//총 행 수
+		int totalRows = service.imageTotalRows();
+		//전체 페이지 수
+		int totalPageNo = (totalRows/rowsPerPage) + ((totalRows%rowsPerPage!=0)?1:0);
+		//전체 그룹 수
+		int totalGroupNo = (totalPageNo/pagesPerGroup) + ((totalPageNo%pagesPerGroup!=0)?1:0);
+		//현재 그룹 번호
+		int groupNo = (pageNo-1)/pagesPerGroup + 1;
+		//현재 그룹의 시작 페이지 번호
+		int startPageNo = (groupNo-1) * pagesPerGroup + 1;
+		//현재 그룹의 마지막 페이지 번호
+		int endPageNo = (startPageNo + pagesPerGroup - 1);
+		if(groupNo == totalGroupNo) {endPageNo = totalPageNo;}
+		//현재 페이지의 행의 데이터 가져오기		
+		List<Exam12Image> list = service.imageListPage(pageNo, rowsPerPage);
+		//View로 넘겨줄 데이터
+		model.addAttribute("list", list);
+		model.addAttribute("pagesPerGroup", pagesPerGroup);
+		model.addAttribute("totalPageNo", totalPageNo);
+		model.addAttribute("totalGroupNo", totalGroupNo);
+		model.addAttribute("groupNo", groupNo);
+		model.addAttribute("startPageNo", startPageNo);
+		model.addAttribute("endPageNo", endPageNo);
+		model.addAttribute("pageNo", pageNo);
+		//View 이름 리턴
+		return "jdbc/exam07";
+	}
+	@RequestMapping("/jdbc/exam07Detail")
+	public String exam07Detail(int no, Model model){
+		Exam12Image image = service.getImage(no);
+		model.addAttribute("image", image);
+		return "jdbc/exam07Detail";
+	}
+	
+	@RequestMapping("/jdbc/exam07CheckPassword")
+	public String exam07CheckPassword(int no, String password, Model model){
+		String result = service.imageCheckPassword(no, password);
+		model.addAttribute("result", result);
+		return "jdbc/exam07CheckPassword";
+	}
+	
+	@RequestMapping(value="/jdbc/exam07Update", method=RequestMethod.GET)	
+	public String exam07UpdateGet(int no, Model model){
+		Exam12Image image = service.getImage(no);
+		model.addAttribute("image", image);
+		return "jdbc/exam07Update";
+	}
+	
+	@RequestMapping(value="/jdbc/exam07Update", method=RequestMethod.POST)	
+	public String exam07UpdatePost(Exam12Image image) throws Exception{		
+		//첨부 파일의 변경 여부 검사
+		if(!image.getAttach().isEmpty()){
+			//첨부 파일에 대한 정보를 컬럼값으로 설정
+			image.setFilename(image.getAttach().getOriginalFilename());
+			String fileName = image.getFilename();
+			
+			//첨부파일을 서버에 저장
+			String realPath = servletContext.getRealPath("/WEB-INF/upload/");		
+			File file = new File(realPath + fileName);
+			image.getAttach().transferTo(file);
+		}
+		
+		//게시물 수정 처리
+		service.imageUpdate(image);
+		
+		return "redirect:/jdbc/exam07Detail?no=" + image.getNo();	
+	}
+	
+	@RequestMapping(value="/jdbc/exam07Delete")
+	public String exam07Delete(int no) {
+		service.imageDelete(no);
+		return "redirect:/jdbc/exam07";
+	}
+	@RequestMapping("/jdbc/exam07Download")
+	public void imageDownload(HttpServletResponse response, @RequestHeader("User-Agent") String userAgent, int no) throws Exception{
+		//응답 HTTP 헤더행을 추가
+		//1) 파일의 이름
+		String fileName="";
+		fileName = service.imageDownload(no);
+		
+		
+		// 한글이름 파일을 나타내주기 위한 코드
+		String encodingFileName;
+		if(userAgent.contains("MSIE") || userAgent.contains("Trident") || userAgent.contains("Edge")) {
+			encodingFileName = URLEncoder.encode(fileName, "UTF-8");				
+		} else{
+			encodingFileName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");			
+		}
+		//System.out.println(encodingFileName);
+		
+			//addHeader (헤더명, 헤더값)
+		response.addHeader("Content-Disposition", "attachment; filename=\"" + encodingFileName +"\"");
+		//2) 파일의 종류
+		response.addHeader("Content-Type", "image/jpeg");
+		//3) 파일의 크기
+		String realPath = servletContext.getRealPath("/WEB-INF/upload/"+encodingFileName);
+		File file =new File(realPath);
+		long fileSize = file.length();
+		response.addHeader("Content-Length", String.valueOf(fileSize));
+		
+		
+		//응답 HTTP 본문에 파일 데이터를 출력
+		OutputStream os = response.getOutputStream();
+		FileInputStream fis = new FileInputStream(file);
+		FileCopyUtils.copy(fis, os);
+		os.flush();
+		fis.close();
+		os.close();				
+		
+	}
+	
 }
 

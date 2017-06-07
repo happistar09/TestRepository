@@ -3,6 +3,7 @@ package com.mycompany.myapp.dao;
 import java.util.List;
 
 import com.mycompany.myapp.dto.Exam12Board;
+import com.mycompany.myapp.dto.Exam12Image;
 import com.mycompany.myapp.dto.Exam12Member;
 
 public interface Exam12Dao {
@@ -22,4 +23,16 @@ public interface Exam12Dao {
 	public void memberUpdate(Exam12Member member);
 	public void memberDelete(String mid);
 	public String memberDownload(String mid);
+	
+	public int imageInsert(Exam12Image image);
+	public List<Exam12Image> imageSelectAll();
+	public List<Exam12Image> imageSelectPage(int pageNo, int rowsPerPage);
+	public int imageCountAll();
+	public Exam12Image imageSelectByNo(int no);
+	public void imageUpdateHitcount(int no, int hitcount);
+	public void imageUpdate(Exam12Image image);
+	public void imageDelete(int no);
+	public String imageDownload(int no);
+	
+	
 }

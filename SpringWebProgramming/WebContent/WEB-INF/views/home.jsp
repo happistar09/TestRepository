@@ -100,6 +100,8 @@
 		<a href="jdbc/exam04" class="btn btn-primary">게시물 목록</a>
 		<a href="jdbc/exam05" class="btn btn-primary">페이지 목록</a>
 		<a href="jdbc/exam06" class="btn btn-primary">멤버 목록</a>
-
+		
+		<h4>사진 게시판</h4>
+		<a href="jdbc/exam07" class="btn btn-primary">사진 게시판</a>
 	</body>
 </html>

@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dto.Exam12Board;
+import com.mycompany.myapp.dto.Exam12Image;
 import com.mycompany.myapp.dto.Exam12Member;
 
 @Component
@@ -733,13 +734,436 @@ public class Exam12DaoImpl implements Exam12Dao{
 		
 		
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	@Override
+	public int imageInsert(Exam12Image image){	
+		int no = -1;		
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "insert into image ";
+			sql += "(no, title, content, writer, hitcount, filename, password, day) ";
+			sql += "values ";
+			sql += "(?, ?, ?, ?, ?, ?, ?, sysdate)";			
+			
+			
+			//오라클일 경우 Sequence 외부 객체로 자동 증가값을 얻기 때문에 다음과 같이 지정
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			pstmt.setInt(1, image.getNo());
+			pstmt.setString(2, image.getTitle());
+			pstmt.setString(3, image.getContent());
+			pstmt.setString(4, image.getWriter());
+			pstmt.setInt(5, image.getHitcount());
+			pstmt.setString(6, image.getFilename());
+			pstmt.setString(7, image.getPassword());
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			no = image.getNo();			
+			LOGGER.info("행 추가 성공");
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+		return no;
+	}
+
+
+	
+
+
+
+
+	
+	@Override
+	public List<Exam12Image> imageSelectAll() {
+		List<Exam12Image> list = new ArrayList<>();
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "select no, title, content, writer, hitcount, filename, password, day";
+			sql += "from image ";
+			sql += "order by bno desc ";
+								
+			
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				Exam12Image image = new Exam12Image();
+				
+				image.setNo(rs.getInt("no"));
+				image.setTitle(rs.getString("title"));
+				image.setContent(rs.getString("content"));
+				image.setWriter(rs.getString("writer"));
+				image.setHitcount(rs.getInt("hitcount"));
+				image.setFilename(rs.getString("filename"));
+				image.setPassword(rs.getString("password"));
+				image.setDay(rs.getDate("day"));
+				list.add(image);				
+			}
+			rs.close();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+		return list;
+	}
+
+	@Override
+	public List<Exam12Image> imageSelectPage(int pageNo, int rowsPerPage) {
+		List<Exam12Image> list = new ArrayList<>();
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "select * ";
+			sql +="from ( ";
+			sql +="  select rownum as r, no, title, content, writer, hitcount, filename, password, day ";
+			sql +="  from (";
+			sql +="    select no, title, content, writer, hitcount, filename, password, day from image order by no desc ";
+			sql +="  ) ";
+			sql +="  where rownum<=? ";
+			sql +=") ";
+			sql +="where r>=? ";
+								
+			
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, pageNo*rowsPerPage);
+			pstmt.setInt(2, (pageNo-1)*rowsPerPage+1);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				Exam12Image image = new Exam12Image();
+				
+				image.setNo(rs.getInt("no"));
+				image.setTitle(rs.getString("title"));
+				image.setContent(rs.getString("content"));
+				image.setWriter(rs.getString("writer"));
+				image.setHitcount(rs.getInt("hitcount"));
+				image.setFilename(rs.getString("filename"));
+				image.setPassword(rs.getString("password"));
+				image.setDay(rs.getDate("day"));
+				list.add(image);				
+			}
+			rs.close();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+		return list;
+	}
+	
+	@Override
+	public int imageCountAll() {
+		int count=0;
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "select count(*) from image";
+			
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);			
+			ResultSet rs = pstmt.executeQuery();			
+			rs.next();
+			count = rs.getInt(1);
+			rs.close();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+		return count;
+	}
+
+	@Override
+	public Exam12Image imageSelectByNo(int no) {
+		Exam12Image image = null;
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "select * from image where no=?";
+			
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			ResultSet rs = pstmt.executeQuery();			
+			if(rs.next()){
+				image = new Exam12Image();
+				
+				image.setNo(rs.getInt("no"));
+				image.setTitle(rs.getString("title"));
+				image.setContent(rs.getString("content"));
+				image.setWriter(rs.getString("writer"));
+				image.setHitcount(rs.getInt("hitcount"));
+				image.setFilename(rs.getString("filename"));
+				image.setPassword(rs.getString("password"));
+				image.setDay(rs.getDate("day"));	
+			}			
+			rs.close();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+		return image;
+	}
+	
+	@Override
+	public void imageUpdateHitcount(int no, int hitcount) {
+		
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "update image set hitcount=? where no=?";
+			
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			pstmt.setInt(1, hitcount);
+			pstmt.setInt(2, no);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+	}
+	
+	@Override
+	public void imageUpdate(Exam12Image image) {
+		
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql;
+			if(image.getFilename()!= null){
+				sql = "update image set title=?, content=?, writer=?, hitcount=?, filename=?, password=?, day=sysdate where no=?";
+			} else {
+				sql = "update image set title=?, content=?, writer=?, hitcount=?, password=?, day=sysdate where no=?";
+			}
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			pstmt.setString(1, image.getTitle());
+			pstmt.setString(2, image.getContent());
+			pstmt.setString(3, image.getWriter());
+			pstmt.setInt(4, image.getHitcount());
+			
+			if(image.getFilename()!= null){
+				pstmt.setString(5, image.getFilename());
+				pstmt.setString(6, image.getPassword());
+				pstmt.setInt(7, image.getNo());				
+			} else{
+				pstmt.setString(5, image.getPassword());
+				pstmt.setInt(6, image.getNo());
+			}
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+	}
+	
+	@Override
+	public void imageDelete(int no) {
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "delete from image where no=?";
+			
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+		
+	}
+	@Override
+	public String imageDownload(int no) {
+		String filename="";
+		Connection conn = null;
+		try {
+			//JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+			//연결 문자열 작성
+			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
+			//연결 객체 얻기
+			conn = DriverManager.getConnection(url, "user02", "java12345");
+			LOGGER.info("연결 성공");
+			//매개 변수화된 SQL 작성
+			String sql = "select filename from image where no=?";
+			
+			//SQL문을 전송해서 실행
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			ResultSet rs = pstmt.executeQuery();			
+			if(rs.next()){
+				filename = rs.getString("filename");
+			}
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			//연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊김");
+			} catch (SQLException e) {}			
+		}
+		return filename;
+		
+		
+	}
+	
 		
 	
 	
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args){
-		
+		/*
 		Exam12DaoImpl test = new Exam12DaoImpl();
 		for(int i=1; i<=100; i++){			
 			Exam12Member member = new Exam12Member();
@@ -754,8 +1178,22 @@ public class Exam12DaoImpl implements Exam12Dao{
 			member.setMsavedfilename("b.png");
 			member.setMfilecontent("image");			
 			test.memberInsert(member);
+		}	
+		*/
+		Exam12DaoImpl test = new Exam12DaoImpl();
+		for(int i=1; i<=20; i++){
+			Exam12Image image = new Exam12Image();
+			
+			image.setNo(i);
+			image.setTitle("title"+i);
+			image.setContent("content"+i);
+			image.setWriter("writer"+i);
+			image.setHitcount(0);
+			image.setFilename("default.png");
+			image.setPassword("12345");
+			test.imageInsert(image);
+			
 		}
-		
 		
 	}
 

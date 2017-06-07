@@ -34,7 +34,7 @@ public class ActiveBuzzer {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		ActiveBuzzer test = new ActiveBuzzer(RaspiPin.GPIO_00);
+		ActiveBuzzer test = new ActiveBuzzer(RaspiPin.GPIO_24);
 		for(int i=0; i<5; i++) {
 			test.on();
 			Thread.sleep(1000);
