@@ -57,7 +57,7 @@ public class SG90Servo {
 		test.setAngle(0);
 		Thread.sleep(500);
 		test.setAngle(90);
-		Thread.sleep(500);
+		Thread.sleep(500); 
 		test.setAngle(180);
 		Thread.sleep(500);
 		test.setAngle(90);
