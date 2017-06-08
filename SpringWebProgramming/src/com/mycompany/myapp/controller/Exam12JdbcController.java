@@ -317,7 +317,7 @@ public class Exam12JdbcController {
 	@RequestMapping("/jdbc/exam07")
 	public String exam07(@RequestParam(defaultValue="1")int pageNo, Model model) {		
 		//한 페이지를 구성하는 행 수
-		int rowsPerPage = 5;
+		int rowsPerPage = 8;
 		//한 그룹을 구성하는 페이지 수
 		int pagesPerGroup = 5;
 		//총 행 수
@@ -429,6 +429,34 @@ public class Exam12JdbcController {
 		fis.close();
 		os.close();				
 		
+	}
+	
+	@RequestMapping(value="/jdbc/exam07Write", method=RequestMethod.GET)
+	public String exam07Get() {
+		return "jdbc/exam07Write";
+	}
+	
+	@RequestMapping(value="/jdbc/exam07Write", method=RequestMethod.POST)
+	public String exam07Post(Exam12Image image) throws Exception {
+		//첨부 파일에 대한 정보를 컬럼값으로 설정
+		
+		image.setFilename(image.getAttach().getOriginalFilename());
+		String filename=image.getFilename();
+		
+		//첨부파일을 서버에 저장
+		String realPath = servletContext.getRealPath("/WEB-INF/upload/");		
+		File file = new File(realPath + filename);
+		image.getAttach().transferTo(file);
+		
+		//서비스 객체에 저장
+		service.imageWrite(image);
+		
+		return "redirect:/jdbc/exam07";
+	}
+	@RequestMapping("/web/index")
+	public String webIndex(){
+		
+		return "web/index.html";
 	}
 	
 }

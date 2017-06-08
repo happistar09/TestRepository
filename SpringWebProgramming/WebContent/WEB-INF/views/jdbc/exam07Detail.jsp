@@ -58,15 +58,15 @@
 		}
 		</script>		
 	</head>
-	<body>
+	<body >
 		<h4>글 내용보기</h4>
 		<hr/>
-		<form method="post" style="padding: 0px 20px" enctype="multipart/form-data">
+		<form method="post" style="padding: 0px 20px" enctype="multipart/form-data" >
 			
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-user"></span>
+						<span class="glyphicon glyphicon-bullhorn">Title</span>
 					</span>
 					<input type="text" class="form-control" placeholder="제목" name="title" value="${image.title}" disabled/>
 				</div>
@@ -74,24 +74,24 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-lock"></span>
+						<span class="glyphicon glyphicon-user">Name</span>
 					</span>
-					<input type="text" class="form-control" placeholder="내용" name="content" value="${image.content}" disabled/>
+					<input type="text" class="form-control" placeholder="글쓴이" name="writer" value="${image.writer}" disabled/>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-leaf"></span>
+						<span class="glyphicon glyphicon-list-alt">Content</span>
 					</span>
-					<input type="text" class="form-control" placeholder="글쓴이" name="writer" value="${image.writer}" disabled/>
+					<input type="text" class="form-control" placeholder="내용" name="content" value="${image.content}" disabled/>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-camera"></span>
+						<span class="glyphicon glyphicon-camera">Image</span>
 					</span>
 					<a class="form-control" href="#">${image.filename}</a>
 					<img src="../file/exam05?no=${image.no}" width="300px" height="300px"/>
@@ -100,7 +100,7 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-lock"></span>
+						<span class="glyphicon glyphicon-lock">Password</span>
 					</span>
 					<input id="password" type="password" class="form-control" placeholder="비밀번호" name="password"/>
 				</div>

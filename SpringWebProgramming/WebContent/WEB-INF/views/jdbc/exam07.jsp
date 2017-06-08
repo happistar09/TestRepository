@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,40 +10,70 @@
 		<title>JSP Page</title>
 		<link href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 		<script src="<%=application.getContextPath()%>/resources/jquery/jquery.js" type="text/javascript"></script>
-		<script src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>		
+   		 <meta name="description" content="">
+    	<meta name="author" content="">
+
+    	
+
+	    <!-- Bootstrap Core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	    <!-- Custom CSS -->
+	    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+		<style>
+		body {
+			background-color: ivory;
+			
+		}
+		</style>
 	</head>
 	<body>
-		<h4>사진 게시판</h4>
-		<hr/>		
-		<table class="table table-bordered" style="margin-top: 20px; width:1000px">
-			<tr class="success">
-				<td>글번호</td>
-				<td>사진</td>
-				<td>제목</td>				
-				<td>내용</td>
-				<td>글쓴이</td>
-				<td>조회수</td>
-				<td>파일이름</td>				
-				<td>날짜</td>
-				
-				
-				
-				
-			</tr>
-			<c:forEach var="b" items="${list}">
-				<tr>
-					<td>${b.no}</td>
-					<td><a href="exam07Detail?no=${b.no}"><img src="../file/exam05?no=${b.no}" width="100px" height="100px"/></a></td>
-					<td><a href="exam07Detail?no=${b.no}">${b.title}</a></td>
-					<td>${b.content}</td>
-					<td>${b.writer}</td>
-					<td>${b.hitcount}</td>					
-					<td>${b.filename}</td>				
-					<td>${b.day}</td>							
-															
-				</tr>
-			</c:forEach>
-		</table>
+	<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="exam07">[사진 게시판]</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="exam07Write">글 쓰기</a>
+                    </li>
+                   
+                </ul>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+          <hr><hr><hr>
+            
+            <c:forEach var="b" items="${list}">
+	            <div class="col-lg-4 thumb">
+	                <a class="thumbnail" href="exam07Detail?no=${b.no}">
+	                    <img class="img-responsive" src="../file/exam05?no=${b.no}" height="300px" width="3	00px"  alt="">
+	                </a>
+	            </div>
+            </c:forEach>
+
+        </div>
+
+        <hr>        
 		<div style="margin-top: 20px; width:700px; text-align:center;">
 			<a href="exam07?pageNo=1">[처음]</a>
 			<c:if test="${groupNo>1}">
@@ -60,5 +91,16 @@
 			</c:if>			
 			<a href="exam07?pageNo=${totalPageNo}">[맨끝]</a>
 		</div>
+       
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>	
+		
 	</body>
 </html>

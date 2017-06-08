@@ -751,25 +751,26 @@ public class Exam12DaoImpl implements Exam12Dao{
 			LOGGER.info("연결 성공");
 			//매개 변수화된 SQL 작성
 			String sql = "insert into image ";
-			sql += "(no, title, content, writer, hitcount, filename, password, day) ";
+			sql += "(no, title, content, writer, filename, password, day) ";
 			sql += "values ";
-			sql += "(?, ?, ?, ?, ?, ?, ?, sysdate)";			
+			sql += "(image_no_seq.nextval, ?, ?, ?, ?, ?, sysdate)";			
 			
 			
-			//오라클일 경우 Sequence 외부 객체로 자동 증가값을 얻기 때문에 다음과 같이 지정
-			PreparedStatement pstmt =conn.prepareStatement(sql);
-			pstmt.setInt(1, image.getNo());
-			pstmt.setString(2, image.getTitle());
-			pstmt.setString(3, image.getContent());
-			pstmt.setString(4, image.getWriter());
-			pstmt.setInt(5, image.getHitcount());
-			pstmt.setString(6, image.getFilename());
-			pstmt.setString(7, image.getPassword());
+			//오라클일 경우 Sequence 외부 객체로 자동 증가값을 얻기 때문에 다음과 같이 지정			
+			PreparedStatement pstmt =conn.prepareStatement(sql);			
+			pstmt.setString(1, image.getTitle());
+			pstmt.setString(2, image.getContent());
+			pstmt.setString(3, image.getWriter());			
+			pstmt.setString(4, image.getFilename());
+			pstmt.setString(5, image.getPassword());
 			
 			pstmt.executeUpdate();
+			ResultSet rs = pstmt.getGeneratedKeys();
+			rs.next();
+			no = rs.getInt(1);
 			pstmt.close();
 			
-			no = image.getNo();			
+						
 			LOGGER.info("행 추가 성공");
 			
 		} catch (ClassNotFoundException e) {			
@@ -1126,7 +1127,7 @@ public class Exam12DaoImpl implements Exam12Dao{
 			String url = "jdbc:oracle:thin:@106.253.56.126:1521:orcl";
 			//연결 객체 얻기
 			conn = DriverManager.getConnection(url, "user02", "java12345");
-			LOGGER.info("연결 성공");
+			//LOGGER.info("연결 성공");
 			//매개 변수화된 SQL 작성
 			String sql = "select filename from image where no=?";
 			
@@ -1152,7 +1153,7 @@ public class Exam12DaoImpl implements Exam12Dao{
 			//연결 끊기
 			try {
 				conn.close();
-				LOGGER.info("연결 끊김");
+				//LOGGER.info("연결 끊김");
 			} catch (SQLException e) {}			
 		}
 		return filename;
@@ -1187,12 +1188,12 @@ public class Exam12DaoImpl implements Exam12Dao{
 		for(int i=1; i<=20; i++){
 			Exam12Image image = new Exam12Image();
 			
-			image.setNo(i);
+			//image.setNo(i);
 			image.setTitle("title"+i);
 			image.setContent("content"+i);
 			image.setWriter("writer"+i);
 			image.setHitcount(0);
-			image.setFilename("default.png");
+			image.setFilename("default.jpg");
 			image.setPassword("12345");
 			test.imageInsert(image);
 			
