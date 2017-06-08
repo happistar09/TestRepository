@@ -103,5 +103,6 @@
 		
 		<h4>사진 게시판</h4>
 		<a href="jdbc/exam07" class="btn btn-primary">사진 게시판</a>
+		
 	</body>
 </html>
