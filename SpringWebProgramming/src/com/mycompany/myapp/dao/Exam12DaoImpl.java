@@ -1,5 +1,6 @@
 package com.mycompany.myapp.dao;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -807,7 +808,7 @@ public class Exam12DaoImpl implements Exam12Dao{
 			//매개 변수화된 SQL 작성
 			String sql = "select no, title, content, writer, hitcount, filename, password, day";
 			sql += "from image ";
-			sql += "order by bno desc ";
+			sql += "order by no desc ";
 								
 			
 			//SQL문을 전송해서 실행
@@ -1044,24 +1045,23 @@ public class Exam12DaoImpl implements Exam12Dao{
 			//매개 변수화된 SQL 작성
 			String sql;
 			if(image.getFilename()!= null){
-				sql = "update image set title=?, content=?, writer=?, hitcount=?, filename=?, password=?, day=sysdate where no=?";
+				sql = "update image set title=?, content=?, filename=?, password=? where no=?";
 			} else {
-				sql = "update image set title=?, content=?, writer=?, hitcount=?, password=?, day=sysdate where no=?";
+				sql = "update image set title=?, content=?, password=? where no=?";
 			}
 			//SQL문을 전송해서 실행
 			PreparedStatement pstmt =conn.prepareStatement(sql);
 			pstmt.setString(1, image.getTitle());
 			pstmt.setString(2, image.getContent());
-			pstmt.setString(3, image.getWriter());
-			pstmt.setInt(4, image.getHitcount());
+			
 			
 			if(image.getFilename()!= null){
-				pstmt.setString(5, image.getFilename());
-				pstmt.setString(6, image.getPassword());
-				pstmt.setInt(7, image.getNo());				
+				pstmt.setString(3, image.getFilename());
+				pstmt.setString(4, image.getPassword());
+				pstmt.setInt(5, image.getNo());				
 			} else{
-				pstmt.setString(5, image.getPassword());
-				pstmt.setInt(6, image.getNo());
+				pstmt.setString(3, image.getPassword());
+				pstmt.setInt(4, image.getNo());
 			}
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -1118,6 +1118,7 @@ public class Exam12DaoImpl implements Exam12Dao{
 	public String imageDownload(int no) {
 		String filename="";
 		Connection conn = null;
+		
 		try {
 			//JDBC Driver 클래스 로딩
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -1132,7 +1133,8 @@ public class Exam12DaoImpl implements Exam12Dao{
 			//SQL문을 전송해서 실행
 			PreparedStatement pstmt =conn.prepareStatement(sql);
 			pstmt.setInt(1, no);
-			ResultSet rs = pstmt.executeQuery();			
+			ResultSet rs = pstmt.executeQuery();	
+			
 			if(rs.next()){
 				filename = rs.getString("filename");
 			}
@@ -1144,8 +1146,9 @@ public class Exam12DaoImpl implements Exam12Dao{
 		} catch (ClassNotFoundException e) {			
 			e.printStackTrace();
 		} catch (SQLException e) {			
-			e.printStackTrace();
-		} finally {
+			e.printStackTrace();	
+		}
+		 finally {
 			//연결 끊기
 			try {
 				conn.close();

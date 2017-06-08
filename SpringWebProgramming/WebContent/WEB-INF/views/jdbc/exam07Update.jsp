@@ -21,7 +21,7 @@
 		</script>
 	</head>
 	<body>
-		<h4>정보 수정</h4>
+		<h4>글 수정</h4>
 		<hr/>
 		<form method="post" style="padding: 0px 20px" enctype="multipart/form-data">
 			<input type="hidden" name="no" value="${image.no}"/>
@@ -47,7 +47,7 @@
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-lock"></span>
 					</span>
-					<input type="date" class="form-control" placeholder="내용" name="content" value="${image.content}"/>
+					<input type="text" class="form-control" placeholder="내용" name="content" value="${image.content}"/>
 				</div>
 			</div>
 			<div class="form-group">

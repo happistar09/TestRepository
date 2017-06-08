@@ -393,7 +393,7 @@ public class Exam12JdbcController {
 		service.imageDelete(no);
 		return "redirect:/jdbc/exam07";
 	}
-	@RequestMapping("/jdbc/exam07Download")
+	@RequestMapping("file/exam05")
 	public void imageDownload(HttpServletResponse response, @RequestHeader("User-Agent") String userAgent, int no) throws Exception{
 		//응답 HTTP 헤더행을 추가
 		//1) 파일의 이름

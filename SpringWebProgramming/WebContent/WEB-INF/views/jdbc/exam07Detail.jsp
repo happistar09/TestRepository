@@ -24,7 +24,7 @@
 				data: {"no":"${image.no}","password":password},
 				success: function(data){
 					if(data.result == "success"){
-						location.href = "exam07Update?mid=${image.no}"
+						location.href = "exam07Update?no=${image.no}"
 					} else{
 						$("#password").val("");
 						$("#password").attr("placeholder", "비밀번호를 정확히 입력해주세요 !");
@@ -44,7 +44,7 @@
 			$.ajax({
 				url: "exam07CheckPassword",
 				method: "post",			
-				data: {"no":"${service.no}","password":password},
+				data: {"no":"${image.no}","password":password},
 				success: function(data){
 					if(data.result == "success"){
 						location.href = "exam07Delete?no=${image.no}"
@@ -59,17 +59,10 @@
 		</script>		
 	</head>
 	<body>
-		<h4>멤버 상세 보기</h4>
+		<h4>글 내용보기</h4>
 		<hr/>
 		<form method="post" style="padding: 0px 20px" enctype="multipart/form-data">
-			<div class="form-group">
-				<div class="input-group">
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-user"></span>
-					</span>
-					<input type="text" class="form-control" placeholder="글번호" name="no" value="${image.no}" disabled/>
-				</div>
-			</div>
+			
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
@@ -83,7 +76,7 @@
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-lock"></span>
 					</span>
-					<input type="date" class="form-control" placeholder="내용" name="content" value="${image.content}" disabled/>
+					<input type="text" class="form-control" placeholder="내용" name="content" value="${image.content}" disabled/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -101,6 +94,7 @@
 						<span class="glyphicon glyphicon-camera"></span>
 					</span>
 					<a class="form-control" href="#">${image.filename}</a>
+					<img src="../file/exam05?no=${image.no}" width="300px" height="300px"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -116,6 +110,7 @@
 			<a href="exam07" class="btn btn-success">목록</a>
 			<input onclick="handleBtnUpdate()" type="button" class="btn btn-warning" value="수정"/>
 			<input onclick="handleBtnDelete()" type="button" class="btn btn-danger" value="삭제"/>
+			<a href="../file/exam05?no=${image.no}" class="btn btn-primary">다운로드</a>
 			
 			<!--  
 			<button>버튼</button>			//submit 기능

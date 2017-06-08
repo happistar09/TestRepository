@@ -12,18 +12,19 @@
 		<script src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<h4>멤버 목록</h4>
+		<h4>사진 게시판</h4>
 		<hr/>		
 		<table class="table table-bordered" style="margin-top: 20px; width:1000px">
 			<tr class="success">
 				<td>글번호</td>
+				<td>사진</td>
 				<td>제목</td>				
 				<td>내용</td>
 				<td>글쓴이</td>
 				<td>조회수</td>
-				<td>파일이름</td>
-				<td>패스워드</td>
+				<td>파일이름</td>				
 				<td>날짜</td>
+				
 				
 				
 				
@@ -31,13 +32,14 @@
 			<c:forEach var="b" items="${list}">
 				<tr>
 					<td>${b.no}</td>
+					<td><a href="exam07Detail?no=${b.no}"><img src="../file/exam05?no=${b.no}" width="100px" height="100px"/></a></td>
 					<td><a href="exam07Detail?no=${b.no}">${b.title}</a></td>
 					<td>${b.content}</td>
 					<td>${b.writer}</td>
 					<td>${b.hitcount}</td>					
-					<td>${b.filename}</td>					
-					<td>${b.password}</td>
-					<td>${b.day}</td>												
+					<td>${b.filename}</td>				
+					<td>${b.day}</td>							
+															
 				</tr>
 			</c:forEach>
 		</table>
