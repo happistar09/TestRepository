@@ -1166,24 +1166,9 @@ public class Exam12DaoImpl implements Exam12Dao{
 	
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/*
 	public static void main(String[] args){
-		/*
-		Exam12DaoImpl test = new Exam12DaoImpl();
-		for(int i=1; i<=100; i++){			
-			Exam12Member member = new Exam12Member();
-			member.setMid("id"+i);			
-			member.setMname("이름"+i);
-			member.setMpassword("12345");
-			member.setMtel("010-0000-0000");
-			member.setMemail("aaa@naver.com");
-			member.setMage(i);
-			member.setMaddress("서울");
-			member.setMoriginalfilename("a.png");
-			member.setMsavedfilename("b.png");
-			member.setMfilecontent("image");			
-			test.memberInsert(member);
-		}	
-		*/
+		
 		Exam12DaoImpl test = new Exam12DaoImpl();
 		for(int i=1; i<=20; i++){
 			Exam12Image image = new Exam12Image();
@@ -1197,9 +1182,9 @@ public class Exam12DaoImpl implements Exam12Dao{
 			image.setPassword("12345");
 			test.imageInsert(image);
 			
-		}
-		
+		}		
 	}
+	*/
 
 
 

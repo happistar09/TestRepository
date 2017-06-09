@@ -66,7 +66,7 @@
             <c:forEach var="b" items="${list}">
 	            <div class="col-lg-4 thumb">
 	                <a class="thumbnail" href="exam07Detail?no=${b.no}">
-	                    <img class="img-responsive" src="../file/exam05?no=${b.no}" height="300px" width="3	00px"  alt="">
+	                    <img class="img-responsive" src="../file/exam05?no=${b.no}" height="300px" width="300px"  alt="">
 	                </a>
 	            </div>
             </c:forEach>
