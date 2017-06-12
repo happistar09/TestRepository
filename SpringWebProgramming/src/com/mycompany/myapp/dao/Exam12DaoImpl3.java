@@ -91,63 +91,27 @@ public class Exam12DaoImpl3 implements Exam12Dao{
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public String memberInsert(Exam12Member member) {
+		int rows = sqlSessionTemplate.insert("member.insert", member);
 		
-		String sql = "insert into member ";
-		sql += "(mid, mname, mpassword, mdate, mtel, memail, mage, maddress, moriginalfilename, msavedfilename, mfilecontent) ";
-		sql += "values ";
-		sql += "(?, ?, ?, sysdate, ?, ?, ?, ?, ?, ?, ?)";
-
-		jdbcTemplate.update(sql, member.getMid(), member.getMname(), member.getMpassword(), member.getMtel(),
-				member.getMemail(), member.getMage(), member.getMaddress(), member.getMoriginalfilename(),
-				member.getMsavedfilename(), member.getMfilecontent());
-							
-			
-		return member.getMid();
+		return member.getMid();		
 	}
 	
 	@Override
 	public List<Exam12Member> memberSelectPage(int pageNo, int rowsPerPage) {
 
-		String sql = "select * ";
-		sql += "from ( ";
-		sql += "  select rownum as r, mid, mname, mpassword, mdate, mtel, memail, mage, maddress ";
-		sql += "  from (";
-		sql += "    select mid, mname, mpassword, mdate, mtel, memail, mage, maddress from member order by mage desc ";
-		sql += "  ) ";
-		sql += "  where rownum<=? ";
-		sql += ") ";
-		sql += "where r>=? ";
-
-		Object[] args = { (pageNo * rowsPerPage), ((pageNo - 1) * rowsPerPage + 1) };
-		RowMapper<Exam12Member> rowMapper = new RowMapper<Exam12Member>() {
-			@Override
-			public Exam12Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Exam12Member member = new Exam12Member();
-				member.setMid(rs.getString("mid"));
-				member.setMname(rs.getString("mname"));
-				member.setMpassword(rs.getString("mpassword"));
-				member.setMdate(rs.getDate("mdate"));
-				member.setMtel(rs.getString("mtel"));
-				member.setMemail(rs.getString("memail"));
-				member.setMage(rs.getInt("mage"));
-				member.setMaddress(rs.getString("maddress"));
-				return member;
-			}
-		};
-		List<Exam12Member> list = jdbcTemplate.query(sql, args, rowMapper);
-
-		return list;	
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("startNum", (pageNo-1)*rowsPerPage + 1);
+		map.put("endNum", pageNo*rowsPerPage);
+		List<Exam12Member> list = sqlSessionTemplate.selectList("member.selectByPage", map);			
+		return list;		
 	}
-		
-	
+			
 	
 	
 	@Override
 	public int memberCountAll() {
 
-		String sql = "select count(*) from member";
-
-		int count = (int) jdbcTemplate.queryForObject(sql, Integer.class);
+		int count = sqlSessionTemplate.selectOne("member.countAll");
 		return count;
 		
 	}
@@ -156,28 +120,7 @@ public class Exam12DaoImpl3 implements Exam12Dao{
 	@Override
 	public Exam12Member memberSelectByMid(String mid) {
 
-		String sql = "select * from member where mid=?";
-
-		RowMapper<Exam12Member> rowMapper = new RowMapper<Exam12Member>() {
-			@Override
-			public Exam12Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Exam12Member member = new Exam12Member();
-				member.setMid(rs.getString("mid"));
-				member.setMname(rs.getString("mname"));
-				member.setMpassword(rs.getString("mpassword"));
-				member.setMdate(rs.getDate("mdate"));
-				member.setMtel(rs.getString("mtel"));
-				member.setMemail(rs.getString("memail"));
-				member.setMage(rs.getInt("mage"));
-				member.setMaddress(rs.getString("maddress"));
-				member.setMoriginalfilename(rs.getString("moriginalfilename"));
-				member.setMsavedfilename(rs.getString("msavedfilename"));
-				member.setMfilecontent(rs.getString("mfilecontent"));
-				return member;
-			}
-		};
-		Exam12Member member = jdbcTemplate.queryForObject(sql, rowMapper, mid);
-
+		Exam12Member member = sqlSessionTemplate.selectOne("member.selectByMid", mid);			
 		return member;
 	}	
 	
@@ -185,25 +128,13 @@ public class Exam12DaoImpl3 implements Exam12Dao{
 	@Override
 	public void memberUpdate(Exam12Member member) {
 
-		String sql;
-		if (member.getMoriginalfilename() != null) {
-			sql = "update member set mpassword=?, mtel=?, memail=?, maddress=?, moriginalfilename=?, msavedfilename=?, mfilecontent=? where mid=?";
-			jdbcTemplate.update(sql, member.getMpassword(), member.getMtel(), member.getMemail(), member.getMaddress(),
-					member.getMoriginalfilename(), member.getMsavedfilename(), member.getMfilecontent(),
-					member.getMid());
-		} else {
-			sql = "update member set mpassword=?, mtel=?, memail=?, maddress=? where mid=?";
-			jdbcTemplate.update(sql, member.getMpassword(), member.getMtel(), member.getMemail(), member.getMaddress(),
-					member.getMid());
-		}
-
+		sqlSessionTemplate.update("member.update", member);
 	}
 	
 	@Override
 	public void memberDelete(String mid) {
 		
-			String sql = "delete from member where mid=?";
-			jdbcTemplate.update(sql, mid);
+		sqlSessionTemplate.delete("member.delete", mid);	
 			
 		
 	}
@@ -211,17 +142,8 @@ public class Exam12DaoImpl3 implements Exam12Dao{
 	@Override
 	public String memberDownload(String mid) {
 		
-			String sql = "select msavedfilename from member where mid=?";
-			RowMapper<Exam12Member> rowMapper = new RowMapper<Exam12Member>() {
-				@Override
-				public Exam12Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-					Exam12Member member = new Exam12Member();					
-					member.setMsavedfilename(rs.getString("msavedfilename"));				
-					return member;
-				}
-			};
-			Exam12Member member = jdbcTemplate.queryForObject(sql, rowMapper, mid);
-		return member.getMsavedfilename();
+		String msavedfilename = sqlSessionTemplate.selectOne("member.download", mid);
+		return msavedfilename;
 		
 		
 	}
