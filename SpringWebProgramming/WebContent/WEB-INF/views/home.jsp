@@ -101,8 +101,15 @@
 		<a href="jdbc/exam05" class="btn btn-primary">페이지 목록</a>
 		<a href="jdbc/exam06" class="btn btn-primary">멤버 목록</a>
 		
+		<h4>AOP</h4>
+		<a href="jdbc/exam05" class="btn btn-primary">실행시간체크</a>
+		<a href="aop/exam01" class="btn btn-primary">로그인 없이 볼 수 있는 내용</a>
+		<a href="aop/exam02Write" class="btn btn-primary">로그인 해야 볼 수 있는 내용1</a>
+		<a href="aop/exam02Update" class="btn btn-primary">로그인 해야 볼 수 있는 내용2</a>
+		
 		<h4>사진 게시판</h4>
 		<a href="jdbc/exam07" class="btn btn-primary">사진 게시판</a>
+		
 		
 	</body>
 </html>

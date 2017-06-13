@@ -16,7 +16,8 @@ public class ActiveBuzzer {
 	public ActiveBuzzer(Pin buzzerPinNo) {
 		GpioController gpioController = GpioFactory.getInstance();
 		buzzerPin = gpioController.provisionDigitalOutputPin(buzzerPinNo, PinState.HIGH);
-		buzzerPin.setShutdownOptions(false, PinState.HIGH);	}
+		buzzerPin.setShutdownOptions(false, PinState.HIGH);
+	}
 
 	
 	//Method
