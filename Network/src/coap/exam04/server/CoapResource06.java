@@ -45,7 +45,7 @@ public class CoapResource06 extends CoapResource {
 	//Method
 	@Override
 	public void handleGET(CoapExchange exchange) {		
-		if(value>200){
+		if(value>150){
 			exchange.respond("**가스검출**");
 			activeBuzzer.on();
 			flag=1;
