@@ -36,7 +36,7 @@ public class LaserEmitter {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        LaserEmitter laserEmitter = new LaserEmitter(RaspiPin.GPIO_00);
+        LaserEmitter laserEmitter = new LaserEmitter(RaspiPin.GPIO_25);
         for (int i = 0; i < 5; i++) {
             laserEmitter.shot();
             Thread.sleep(3000);
