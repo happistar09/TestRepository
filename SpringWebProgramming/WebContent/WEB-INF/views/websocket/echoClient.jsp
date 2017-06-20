@@ -17,27 +17,39 @@
 				ws.onopen = handleOnOpen;
 				ws.onmessage = handleOnMessage;
 				ws.onclose = handleOnClose;
-				$("#btnConnect").attr("disabled", true);
 			}
 			
 			function handleOnOpen() {
-				$("#divDisplay").append("[연결 성공]<br/>");
+				display("[연결 성공]");
+				$("#btnConnect").attr("disabled", true);
+				$("#btnDisConnect").attr("disabled", false);
 			}
 			function handleOnMessage(event) {
 				var strMessage = event.data;
-				$("#divDisplay").append("[에코] " + strMessage);
+				display("[에코] " + strMessage);
 			}
 			function handleOnClose() {
-				$("#divDisplay").append("[연결 끊김]<br/>");
+				display("[연결 끊김]");
+				$("#btnConnect").attr("disabled", false);
+				$("#btnDisConnect").attr("disabled", true);
 			}
-			function handleBtnDisConnect(){
+			function handleBtnDisConnect() {
 				if(ws != null) {
 					ws.close();
 					ws = null;					
 				}
 			}
-			function handleBtnSend(){
-				
+			function handleBtnSend() {
+				var strMessage = $("#txtMessage").val();
+				ws.send(strMessage);
+			}
+			
+			function display(message) {
+				$("#divDisplay").append("<span style='display:block;'>" + message + "</span>");
+				if($("#divDisplay span").length>20) {
+					$("#divDisplay span").first().remove();
+				}
+				$("#divDisplay").scrollTop($("#divDisplay").height());
 			}
 		</script>		
 	</head>

@@ -51,6 +51,8 @@
 	<!-- WebSocket URL Mapping -->
 	<websocket:handlers>
 		<websocket:mapping handler="echoHandler" path="/websocket/echo"/>
-	</websocket:handlers>
+		<websocket:mapping handler="measureHandler" path="/websocket/measure"/>
+		<websocket:mapping handler="chatHandler" path="/websocket/chat"/>
+	</websocket:handlers>	
 	
 </beans>
