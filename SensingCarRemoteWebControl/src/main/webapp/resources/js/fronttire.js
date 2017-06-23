@@ -3,12 +3,12 @@ function fronttire(command, angle) {
 	var json = {"command" : command, "angle" : angle};
 
 	$.ajax({
-		url : "http://" + location.host + "/SensingCarRemoteWebControl/ultrasonicsensor",
+		url : "http://" + location.host + "/SensingCarRemoteWebControl/fronttire",
 		data : json,
 		method : "post",
 		success : function(data) {
 			if (data.result == "success") {
-				$("#ultrasonicsensorStatus").html("angle=" + data.angle + "; distance=" + data.distance);					
+				$("#fronttireStatus").html("angle=" + data.angle);					
 			}
 		}
 	});

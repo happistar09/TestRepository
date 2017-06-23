@@ -36,7 +36,10 @@
 	<!-- WebSocket URL Mapping -->
 	<websocket:handlers>
 		<websocket:mapping handler="thermistorSensorHandler" path="/websocket/thermistorsensor"/>
-		<websocket:mapping handler="ultrasonicSensorHandler" path="/websocket/ultrasonicsensor"/>	
+		<websocket:mapping handler="ultrasonicSensorHandler" path="/websocket/ultrasonicsensor"/>
+		<websocket:mapping handler="gasSensorHandler" path="/websocket/gassensor"/>
+		<websocket:mapping handler="photoresistorSensorHandler" path="/websocket/photoresistorsensor"/>
+		<websocket:mapping handler="trackingSensorHandler" path="/websocket/trackingsensor"/>
 	</websocket:handlers>	
 	
 </beans:beans>

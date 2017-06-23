@@ -17,9 +17,14 @@
 		<script src="<%=application.getContextPath()%>/resources/js/buzzer.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensor.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/lcd.js"></script>
-		
+		<script src="<%=application.getContextPath()%>/resources/js/fronttire.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/backtire.js"></script>
+			
 		<script src="<%=application.getContextPath()%>/resources/js/thermistorsensorchart.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensorchart.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/trackingsensorchart.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/photoresistorsensorchart.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/gassensorchart.js"></script>
 		
 		
 	</head>
@@ -145,35 +150,35 @@
 						<div class="col-lg-3">
 							<div style="background: linear-gradient(#737373, black); color: white; height:150px; background-color: lightgray; padding: 5px; margin-top: 20px;">
 								<div style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">FrontTire 장치 제어</div>
-								<div style="text-align: center">현재 상태: <span id="fronttireStatus"></span></div>
+								<div style="text-align: center">현재 상태: <span id="fronttireStatus">angle=${fronttireAngle}</span></div>
 								<br/>
 								<div style="text-align: center;">
-									<button type="button" class="btn btn-danger" onclick="fronttire('changeAngle', '65')"><<</button>
-									<button type="button" class="btn btn-default" onclick="fronttire('changeAngle', '95')">정면</button>
-									<button type="button" class="btn btn-primary" onclick="fronttire('changeAngle', '125')">>></button>
+									<button type="button" class="btn btn-danger" onclick="fronttire('change', '60')"><<</button>
+									<button type="button" class="btn btn-default" onclick="fronttire('change', '90')">정면</button>
+									<button type="button" class="btn btn-primary" onclick="fronttire('change', '120')">>></button>
 								</div>
 							</div> 
 						</div>
 						<div class="col-lg-5">
 							<div style="background: linear-gradient(#737373, black); color: white; height:150px; background-color: lightgray; padding: 5px; margin-top: 20px;">
 								<div style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">BackTire 장치 제어</div>
-								<div style="text-align: center">현재 상태: <span id="backtireStatus"></span></div>
+								<div style="text-align: center">현재 상태: <span id="backtireStatus">speed=${backtireSpeed}<br/>direction=${backtireDirection}</span></div>
 								<br/>
 								<div style="text-align: center;">
-									<button type="button" class="btn btn-warning" onclick="backtire('changeDirection', 'forward')" style="margin-bottom: 5px;">전진</button>
-									<button type="button" class="btn btn-info" onclick="backtire('changeDirection', 'backward')" style="margin-bottom: 5px;">후진</button>
+									<button id="btnDirectionForward" type="button" class="btn btn-warning" onclick="backtire('change', '${speed}', 'forward')" style="margin-bottom: 5px;">전진</button>
+									<button id="btnDirectionBackward" type="button" class="btn btn-info" onclick="backtire('change', '${speed}', 'backward')" style="margin-bottom: 5px;">후진</button>
 									<br/>
-									<button onclick="backtire('changeSpeedStep', '0')" style="color: black;">0</button>
-									<button onclick="backtire('changeSpeedStep', '1')" style="color: black;">1</button>
-									<button onclick="backtire('changeSpeedStep', '2')" style="color: black;">2</button>
-									<button onclick="backtire('changeSpeedStep', '3')" style="color: black;">3</button>
-									<button onclick="backtire('changeSpeedStep', '4')" style="color: black;">4</button>
-									<button onclick="backtire('changeSpeedStep', '5')" style="color: black;">5</button>
-									<button onclick="backtire('changeSpeedStep', '6')" style="color: black;">6</button>
-									<button onclick="backtire('changeSpeedStep', '7')" style="color: black;">7</button>
-									<button onclick="backtire('changeSpeedStep', '8')" style="color: black;">8</button>
-									<button onclick="backtire('changeSpeedStep', '9')" style="color: black;">9</button>
-									<button onclick="backtire('changeSpeedStep', '10')" style="color: black;">10</button>
+									<button id="btnSpeed0" onclick="backtire('change', '0' , '${direction}')" style="color: black;">0</button>
+									<button id="btnSpeed1" onclick="backtire('change', '1000', '${direction}')" style="color: black;">1</button>
+									<button id="btnSpeed2" onclick="backtire('change', '1300', '${direction}')" style="color: black;">2</button>
+									<button id="btnSpeed3" onclick="backtire('change', '1700', '${direction}')" style="color: black;">3</button>
+									<button id="btnSpeed4" onclick="backtire('change', '2000', '${direction}')" style="color: black;">4</button>
+									<button id="btnSpeed5" onclick="backtire('change', '2400', '${direction}')" style="color: black;">5</button>
+									<button id="btnSpeed6" onclick="backtire('change', '2700', '${direction}')" style="color: black;">6</button>
+									<button id="btnSpeed7" onclick="backtire('change', '3100', '${direction}')" style="color: black;">7</button>
+									<button id="btnSpeed8" onclick="backtire('change', '3400', '${direction}')" style="color: black;">8</button>
+									<button id="btnSpeed9" onclick="backtire('change', '3800', '${direction}')" style="color: black;">9</button>
+									<button id="btnSpeed10" onclick="backtire('change', '4095', '${direction}')" style="color: black;">10</button>
 								</div>                                      
 							</div> 
 						</div>

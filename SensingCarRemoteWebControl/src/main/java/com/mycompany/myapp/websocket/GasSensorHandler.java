@@ -24,8 +24,8 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 @Component
-public class ThermistorSensorHandler extends TextWebSocketHandler implements ApplicationListener {
-	private static final Logger logger = LoggerFactory.getLogger(ThermistorSensorHandler.class);	
+public class GasSensorHandler extends TextWebSocketHandler implements ApplicationListener {
+	private static final Logger logger = LoggerFactory.getLogger(GasSensorHandler.class);	
 	private List<WebSocketSession> list = new Vector<>();
 	private CoapClient coapClient;
 	private CoapObserveRelation coapObserveRelation;
@@ -33,19 +33,19 @@ public class ThermistorSensorHandler extends TextWebSocketHandler implements App
 	@PostConstruct
 	public void init() {
 		coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.24/thermistorsensor");
+		coapClient.setURI("coap://192.168.3.24/gassensor");
 		coapObserveRelation = coapClient.observe(new CoapHandler() {
 
 			@Override
 			public void onLoad(CoapResponse response) {
 				String json = response.getResponseText();
 				JSONObject jsonObject = new JSONObject(json);
-				double doubleT = Double.parseDouble(jsonObject.getString("temperature"));
-				double temperature = ((int)(doubleT*10))/10.0;				
+				double doubleG = Double.parseDouble(jsonObject.getString("gas"));
+				double gas = ((int)(doubleG*10))/10.0;												
 				
 				jsonObject = new JSONObject(json);				
 				jsonObject.put("time", getUTCTime(new Date().getTime()));
-				jsonObject.put("temperature", temperature);
+				jsonObject.put("gas", gas);				
 				json = jsonObject.toString();
 				try{
 					for(WebSocketSession session : list) {
@@ -65,7 +65,8 @@ public class ThermistorSensorHandler extends TextWebSocketHandler implements App
 	
 	//연결이 성공되었을 때
 	@Override
-	public void afterConnectionEstablished(WebSocketSession session) throws Exception {				
+	public void afterConnectionEstablished(WebSocketSession session) throws Exception {		
+		
 		list.add(session);
 	}
 	
@@ -77,7 +78,8 @@ public class ThermistorSensorHandler extends TextWebSocketHandler implements App
 	
 	//연결이 종료되었을 때
 	@Override
-	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {				
+	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {		
+		
 		list.remove(session);
 	}
 	

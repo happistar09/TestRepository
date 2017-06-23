@@ -19,7 +19,7 @@ public class PhotoresistorSensorResource extends CoapResource{
 		
 	//Constructor
 	public PhotoresistorSensorResource() throws Exception {
-		super("photoresistor");
+		super("photoresistorsensor");
 		setObservable(true);
 		getAttributes().setObservable();
 		setObserveType(CoAP.Type.NON);

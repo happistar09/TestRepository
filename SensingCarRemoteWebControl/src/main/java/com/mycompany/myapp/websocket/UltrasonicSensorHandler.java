@@ -67,20 +67,20 @@ public class UltrasonicSensorHandler extends TextWebSocketHandler implements App
 	//연결이 성공되었을 때
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {		
-		logger.info("");
+		
 		list.add(session);
 	}
 	
 	//메시지를 받았을때
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		logger.info("");		
+				
 	}
 	
 	//연결이 종료되었을 때
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {		
-		logger.info("");
+		
 		list.remove(session);
 	}
 	
@@ -95,8 +95,7 @@ public class UltrasonicSensorHandler extends TextWebSocketHandler implements App
 	}
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
-		if(event instanceof ContextClosedEvent) {
-			logger.info("웹 애플리케이션 종료");
+		if(event instanceof ContextClosedEvent) {			
 			coapObserveRelation.proactiveCancel();
 			coapClient.shutdown();			
 		}
