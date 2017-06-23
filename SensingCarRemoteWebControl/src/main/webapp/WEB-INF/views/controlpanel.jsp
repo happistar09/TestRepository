@@ -16,6 +16,10 @@
 		<script src="<%=application.getContextPath()%>/resources/js/laseremitter.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/buzzer.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensor.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/lcd.js"></script>
+		
+		<script src="<%=application.getContextPath()%>/resources/js/thermistorsensorchart.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensorchart.js"></script>
 		
 		
 	</head>
@@ -106,7 +110,7 @@
 						<div class="col-lg-3">
 							<div style="background: linear-gradient(#737373, black); color: white; height:150px; background-color: lightgray; padding: 5px; margin-top: 20px;">
 								<div style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">UltrasonicSensor 제어</div>
-								<div style="text-align: center">현재 상태: <span id="ultrasonicsensorStatus">${ultrasonicsensorStatus}</span></div>
+								<div style="text-align: center">현재 상태: <span id="ultrasonicsensorStatus">angle=${ultrasonicsensorAngle}; distance=${ultrasonicsensorDistance}</span></div>
 								<br/>
 								<div style="text-align: center;">
 									<button type="button" class="btn btn-danger" onclick="ultrasonicsensor('change', '180')">&lt;&lt;</button>                                    
@@ -121,17 +125,17 @@
 						<div class="col-lg-4">
 							<div style="background: linear-gradient(#737373, black); color: white; height:180px; background-color: lightgray; padding: 5px; margin-top: 20px;">
 								<div style="text-align: center; font-size: 18px; font-style: italic; font-weight: bold;">LCD 장치 제어</div>
-								<div style="text-align: center">현재 상태: <span id="lcdStatus"></span></div>
+								<div style="text-align: center">현재 상태: <span id="lcdStatus"><br/>line0: ${lcdline0}<br/>line1: ${lcdline1}</span></div>
 								<br/>
 								<div style="padding-left: 20px;">
 									<table style="width:100%">
 										<tr>
 											<td style="width:70%">
-												Line0: <input id="lcdline0" type="text" maxlength="16" value="This device is" style="color: black; width:120px;"/><br/>
-												Line1: <input id="lcdline1" type="text" maxlength="16" value="IoT Sensing Car" style="color: black; width:120px;"/>
+												Line0: <input id="lcdline0" type="text" maxlength="16" value="${lcdline0}" style="color: black; width:120px;"/><br/>
+												Line1: <input id="lcdline1" type="text" maxlength="16" value="${lcdline1}" style="color: black; width:120px;"/>
 											</td>
 											<td style="width:30%">
-												<button type="button" onclick="lcd('changeText')" class="btn btn-primary">보내기</button>
+												<button type="button" onclick="lcd('change')" class="btn btn-primary">보내기</button>
 											</td>
 										</tr>
 									</table>

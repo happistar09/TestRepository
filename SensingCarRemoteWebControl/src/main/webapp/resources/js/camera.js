@@ -1,7 +1,7 @@
 function camera(command, leftright, updown) {
 
 	var json = {
-		"command" : "change",
+		"command" : command,
 		"leftright" : leftright,
 		"updown" : updown
 	};

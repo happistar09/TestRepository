@@ -1,6 +1,6 @@
 function rgbled(command, red, green, blue) {
 	var json = {
-			"command" : "change",
+			"command" : command,
 			"red" : red,
 			"green" : green,
 			"blue" : blue
