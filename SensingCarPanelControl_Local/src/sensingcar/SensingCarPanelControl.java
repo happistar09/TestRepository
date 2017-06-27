@@ -11,14 +11,14 @@ public class SensingCarPanelControl extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent parent = FXMLLoader.load(getClass().getResource("Main.fxml")); //AppMain.class.getResource() 똑같음
-		Scene scene = new Scene(parent);
-		primaryStage.setScene(scene);
-		primaryStage.setTitle("SensingCarPanelControl");
-		primaryStage.show();
+        Scene scene = new Scene(parent);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("SensingCarPanelControl");
+        primaryStage.show();
 
-		primaryStage.setOnCloseRequest((e) -> {
-			System.exit(0);
-		});
+        primaryStage.setOnCloseRequest((e) -> {
+            System.exit(0);
+        });
 
 	}
 
