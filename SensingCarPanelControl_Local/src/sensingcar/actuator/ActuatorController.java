@@ -71,7 +71,18 @@ public class ActuatorController implements Initializable {
 				reqJsonObject.put("command", "change");
 				reqJsonObject.put("red", String.valueOf(sliderRed.getValue()));
 				reqJsonObject.put("green", String.valueOf(sliderGreen.getValue()));
-				reqJsonObject.put("blue", String.valueOf(sliderBlue.getValue()));					
+				reqJsonObject.put("blue", String.valueOf(sliderBlue.getValue()));
+				String reqJson = reqJsonObject.toString();
+
+				coapClient.setURI("coap://" + uri + "/rgbled");
+				CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
+				String resJson = coapResponse.getResponseText();
+				coapClient.shutdown();
+
+				JSONObject resJsonObject = new JSONObject(resJson);
+				sliderRed.setValue(resJsonObject.getDouble("red"));
+				sliderGreen.setValue(resJsonObject.getDouble("green"));
+				sliderBlue.setValue(resJsonObject.getDouble("blue"));
 			}
         });
 		sliderGreen.valueProperty().addListener(new ChangeListener<Number>() {
@@ -83,9 +94,20 @@ public class ActuatorController implements Initializable {
 				reqJsonObject.put("command", "change");
 				reqJsonObject.put("red", String.valueOf(sliderRed.getValue()));
 				reqJsonObject.put("green", String.valueOf(sliderGreen.getValue()));
-				reqJsonObject.put("blue", String.valueOf(sliderBlue.getValue()));					
+				reqJsonObject.put("blue", String.valueOf(sliderBlue.getValue()));
+				String reqJson = reqJsonObject.toString();
+
+				coapClient.setURI("coap://" + uri + "/rgbled");
+				CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
+				String resJson = coapResponse.getResponseText();
+				coapClient.shutdown();
+
+				JSONObject resJsonObject = new JSONObject(resJson);
+				sliderRed.setValue(resJsonObject.getDouble("red"));
+				sliderGreen.setValue(resJsonObject.getDouble("green"));
+				sliderBlue.setValue(resJsonObject.getDouble("blue"));
 			}
-        });
+		});
 		sliderBlue.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -95,7 +117,18 @@ public class ActuatorController implements Initializable {
 				reqJsonObject.put("command", "change");
 				reqJsonObject.put("red", String.valueOf(sliderRed.getValue()));
 				reqJsonObject.put("green", String.valueOf(sliderGreen.getValue()));
-				reqJsonObject.put("blue", String.valueOf(sliderBlue.getValue()));					
+				reqJsonObject.put("blue", String.valueOf(sliderBlue.getValue()));	
+				String reqJson = reqJsonObject.toString();
+
+				coapClient.setURI("coap://" + uri + "/rgbled");
+				CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
+				String resJson = coapResponse.getResponseText();
+				coapClient.shutdown();
+
+				JSONObject resJsonObject = new JSONObject(resJson);
+				sliderRed.setValue(resJsonObject.getDouble("red"));
+				sliderGreen.setValue(resJsonObject.getDouble("green"));
+				sliderBlue.setValue(resJsonObject.getDouble("blue"));
 			}
         });
 		
