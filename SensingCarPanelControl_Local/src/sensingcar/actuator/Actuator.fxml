@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="mainControl" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: grey;" stylesheets="@Font.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.actuator.ActuatorController">
+<AnchorPane id="AnchorPane" fx:id="mainControl" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #353545;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.actuator.ActuatorController">
    <children>
       <Button alignment="CENTER" layoutX="54.0" layoutY="92.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="RIGHT">
          <font>
@@ -273,7 +273,7 @@
             <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnSend" layoutX="355.0" layoutY="378.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="전송">
+      <Button fx:id="btnSend" layoutX="355.0" layoutY="378.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="전송" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -282,7 +282,7 @@
             </ImageView>
          </graphic>			
          <font>
-            <Font name="Malgun Gothic Bold" size="20.0" />
+            <Font name="Malgun Gothic Bold" size="15.0" />
          </font>
       </Button>
    </children>
