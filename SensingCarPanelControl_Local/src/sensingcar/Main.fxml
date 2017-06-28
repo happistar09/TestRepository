@@ -11,13 +11,8 @@
 
 <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.MainController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bg">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #353545;" styleClass="bg">
          <children>
-            <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/backgrounds/background.jpg" />
-               </image>
-            </ImageView>
             <Button fx:id="btnVideo" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="338.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="보기" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -88,13 +83,6 @@
                <effect>
                   <DropShadow />
                </effect></Button>
-            <Label fx:id="lblTime" layoutX="20.0" layoutY="25.0" text="시간정보" textFill="WHITE">
-               <font>
-                  <Font name="Malgun Gothic" size="20.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect></Label>
             <Button fx:id="btnCall" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="122.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="호출" textAlignment="CENTER" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -114,39 +102,17 @@
                <effect>
                   <DropShadow />
                </effect></Separator>
-            <Button layoutX="717.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnCheckArrived" style="-fx-background-color: transparent;" textFill="WHITE">
-               <graphic>
-                  <ImageView fx:id="packImage" fitHeight="40.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons/package.png" />
-                     </image>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </ImageView>
-               </graphic>
+            <Label layoutX="340.0" layoutY="24.0" text="SensingCar" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect>
                <font>
-                  <Font size="18.0" />
+                  <Font name="Malgun Gothic Bold" size="22.0" />
                </font>
-            </Button>
-            <Button layoutX="653.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnCheckAdded" style="-fx-background-color: transparent;" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <graphic>
-                  <ImageView fx:id="noticeImage" fitHeight="40.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <image>
-                        <Image url="@images/icons/notepad.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <ImageView fitWidth="45.0" layoutX="374.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            </Label>
+            <ImageView fx:id="packImage" fitHeight="50.0" fitWidth="50.0" layoutX="229.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/icons/home(white).png" />
+                  <Image url="@images/icons/car.png" />
                </image>
                <effect>
                   <DropShadow />

@@ -43,6 +43,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 			btnCall.setOnAction(e -> handleBtnCall(e));
+			btnVideo.setOnAction(e -> handleBtnVideo(e));
 			
     }
 
@@ -57,6 +58,25 @@ public class MainController implements Initializable {
 	private void handleBtnCall(ActionEvent e) {
 		try {
 			Parent parent = FXMLLoader.load(getClass().getResource("actuator/Actuator.fxml"));
+			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Call.fxml이 쌓인다
+
+			parent.setOpacity(0);
+
+			KeyValue keyValue = new KeyValue(parent.opacityProperty(), 1);
+			KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+			Timeline timeLine = new Timeline();
+			timeLine.getKeyFrames().add(keyFrame);
+			timeLine.play();
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+	}
+	
+	private void handleBtnVideo(ActionEvent e) {
+		try {
+			Parent parent = FXMLLoader.load(getClass().getResource("sensor/Sensor.fxml"));
 			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Call.fxml이 쌓인다
 
 			parent.setOpacity(0);
