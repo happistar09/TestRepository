@@ -60,13 +60,17 @@
          </effect>
       </Label>
       <Button fx:id="btnHome" layoutX="727.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
-         <graphic>
+         <graphic>             
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/icons/home_shadow.png" />
                </image>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
       <Button alignment="CENTER" layoutX="482.0" layoutY="277.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: transparent;" textAlignment="RIGHT">
          <font>
             <Font name="Gisha" size="15.0" />
@@ -82,7 +86,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="529.0" layoutY="427.0" text="Laser :" textFill="WHITE">
+      <Label layoutX="521.0" layoutY="418.0" text="Laser :" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -190,7 +194,7 @@
             <DropShadow />
          </effect>
       </Slider>
-      <Slider fx:id="sliderGreen" layoutX="274.0" layoutY="163.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #10620A">
+      <Slider fx:id="sliderGreen" layoutX="274.0" layoutY="162.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #10620A">
           <effect>
             <DropShadow />
          </effect>
@@ -203,7 +207,7 @@
             <Font name="Malgun Gothic Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="207.0" layoutY="164.0" prefHeight="23.0" prefWidth="44.0" text="Green" textFill="WHITE">
+      <Label layoutX="207.0" layoutY="162.0" prefHeight="23.0" prefWidth="44.0" text="Green" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -271,7 +275,7 @@
             <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbLaser" layoutX="606.0" layoutY="428.0" text="OFF" textFill="WHITE">
+      <Label fx:id="lbLaser" layoutX="615.0" layoutY="418.0" text="OFF" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -310,7 +314,7 @@
             <Font name="Malgun Gothic Bold" size="15" />
          </font>
       </Button>
-      <Circle fx:id="circleRgb" fill="#eceff2" layoutX="187.0" layoutY="252.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle fx:id="circleRgb" fill="#eceff2" layoutX="187.0" layoutY="252.0" radius="15.0" stroke="BLACK" strokeType="INSIDE">
           <effect>
             <DropShadow />
          </effect>
