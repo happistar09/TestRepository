@@ -14,8 +14,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import org.eclipse.californium.core.CoapClient;
 import org.eclipse.californium.core.CoapResponse;
@@ -59,6 +64,11 @@ public class ActuatorController implements Initializable {
     private Button btnSend;
     @FXML
     private AnchorPane actuatorPane;
+    private Region regionRgb;
+    @FXML
+    private ImageView imgLaser;
+    @FXML
+    private Circle circleRgb;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,6 +91,7 @@ public class ActuatorController implements Initializable {
                 coapClient.setURI("coap://" + uri + "/rgbled");
                 coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
                 coapClient.shutdown();
+                circleRgb.setFill(Color.rgb(Integer.parseInt(redValue), Integer.parseInt(greenValue), Integer.parseInt(blueValue)));
             }
         });
 
@@ -100,6 +111,7 @@ public class ActuatorController implements Initializable {
                 coapClient.setURI("coap://" + uri + "/rgbled");
                 coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
                 coapClient.shutdown();
+                circleRgb.setFill(Color.rgb(Integer.parseInt(redValue), Integer.parseInt(greenValue), Integer.parseInt(blueValue)));
             }
         });
 
@@ -119,6 +131,7 @@ public class ActuatorController implements Initializable {
                 coapClient.setURI("coap://" + uri + "/rgbled");
                 coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
                 coapClient.shutdown();
+                circleRgb.setFill(Color.rgb(Integer.parseInt(redValue), Integer.parseInt(greenValue), Integer.parseInt(blueValue)));
             }
         });
 
@@ -162,6 +175,7 @@ public class ActuatorController implements Initializable {
         sliderGreen.setValue(sliderGValue);
         sliderBValue = (resJsonObject.getDouble("blue")) / 255 * 100;
         sliderBlue.setValue(sliderBValue);
+        circleRgb.setFill(Color.rgb(resJsonObject.getInt("red"), resJsonObject.getInt("green"), resJsonObject.getInt("blue")));
 
         // buzzer
         coapClient.setURI("coap://" + uri + "/buzzer");
