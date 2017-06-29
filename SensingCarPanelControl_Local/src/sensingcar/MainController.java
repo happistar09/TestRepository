@@ -57,7 +57,7 @@ public class MainController implements Initializable {
 
 	private void handleBtnCall(ActionEvent e) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("actuator/Actuator.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("sensor/Sensor1.fxml"));
 			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Call.fxml이 쌓인다
 
 			parent.setOpacity(0);

@@ -49,7 +49,7 @@ public class ActuatorController implements Initializable {
     @FXML
     private TextField textLine1;
 
-    private String uri = "192.168.3.24";
+    private String uri = "192.168.35.142";
     
     @FXML
     private Label lbBuzzer;
