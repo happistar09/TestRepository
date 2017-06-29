@@ -14,11 +14,11 @@
 		<script src="<%=application.getContextPath()%>/resources/js/camera.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/rgbled.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/laseremitter.js"></script>
-		<script src="<%=application.getContextPath()%>/resources/js/buzzer.js"></script>
-		<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensor.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/buzzer.js"></script>		
 		<script src="<%=application.getContextPath()%>/resources/js/lcd.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/fronttire.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/backtire.js"></script>
+		<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensor.js"></script>
 			
 		<script src="<%=application.getContextPath()%>/resources/js/thermistorsensorchart.js"></script>
 		<script src="<%=application.getContextPath()%>/resources/js/ultrasonicsensorchart.js"></script>
@@ -30,6 +30,7 @@
 	</head>
 
 	<body style="background-color: black;">
+	
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-8">	
@@ -118,9 +119,9 @@
 								<div style="text-align: center">현재 상태: <span id="ultrasonicsensorStatus">angle=${ultrasonicsensorAngle}; distance=${ultrasonicsensorDistance}</span></div>
 								<br/>
 								<div style="text-align: center;">
-									<button type="button" class="btn btn-danger" onclick="ultrasonicsensor('change', '180')">&lt;&lt;</button>                                    
+									<button type="button" class="btn btn-danger" onclick="ultrasonicsensor('change', '170')">&lt;&lt;</button>                                    
 									<button type="button" class="btn btn-default" onclick="ultrasonicsensor('change', '90')">정면</button>
-									<button type="button" class="btn btn-primary" onclick="ultrasonicsensor('change', '0')">&gt;&gt;</button>                                    
+									<button type="button" class="btn btn-primary" onclick="ultrasonicsensor('change', '10')">&gt;&gt;</button>                                    
 								</div>
 							</div>
 						</div>                            
@@ -213,5 +214,6 @@
 				</div>
 			</div>
 		</div>
+		
 	</body>
 </html>

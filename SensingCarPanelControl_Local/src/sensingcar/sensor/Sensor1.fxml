@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="actuatorPane" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #353545;" id="AnchorPane"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.sensor.Sensor1Controller">
+	<Label layoutX="343.0" layoutY="16.0" text="Sensor1" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Malgun Gothic Bold" size="26.0" />
+         </font>
+      </Label>
+	<Separator layoutX="10.0" layoutY="65.0" prefHeight="0.0" prefWidth="780.0">
+         <effect>
+            <DropShadow/>
+         </effect>
+      </Separator>
+</AnchorPane>

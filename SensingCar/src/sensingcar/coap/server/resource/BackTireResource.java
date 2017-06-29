@@ -78,7 +78,7 @@ public class BackTireResource extends CoapResource{
 					backward();
 				}
 				setSpeed(reqSpeed);
-			} else if(command.equals("getStatus")) {			
+			} else if(command.equals("status")) {			
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
