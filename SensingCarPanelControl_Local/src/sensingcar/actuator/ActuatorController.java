@@ -14,9 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -49,7 +47,7 @@ public class ActuatorController implements Initializable {
     @FXML
     private TextField textLine1;
 
-    private String uri = "192.168.35.142";
+    private String uri = "192.168.3.24";
     
     @FXML
     private Label lbBuzzer;
@@ -61,13 +59,11 @@ public class ActuatorController implements Initializable {
     private Label lbLine1;
     @FXML
     private Button btnSend;
-    @FXML
-    private AnchorPane actuatorPane;
-    private Region regionRgb;
-    @FXML
-    private ImageView imgLaser;
+    
     @FXML
     private Circle circleRgb;
+	@FXML
+	private AnchorPane anchorPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -120,6 +116,8 @@ public class ActuatorController implements Initializable {
                 String redValue = String.valueOf((int) ((sliderRed.getValue()) / 100 * 255));
                 String greenValue = String.valueOf((int) ((sliderGreen.getValue()) / 100 * 255));
                 String blueValue = String.valueOf((int) ((sliderBlue.getValue()) / 100 * 255));
+								
+								
                 CoapClient coapClient = new CoapClient();
                 JSONObject reqJsonObject = new JSONObject();
                 reqJsonObject.put("command", "change");
@@ -129,6 +127,8 @@ public class ActuatorController implements Initializable {
                 String reqJson = reqJsonObject.toString();
                 coapClient.setURI("coap://" + uri + "/rgbled");
                 coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
+								
+								
                 coapClient.shutdown();
                 circleRgb.setFill(Color.rgb(Integer.parseInt(redValue), Integer.parseInt(greenValue), Integer.parseInt(blueValue)));
             }
@@ -205,6 +205,7 @@ public class ActuatorController implements Initializable {
         resJsonObject = new JSONObject(resJson);
         lbLine0.setText(resJsonObject.getString("line0"));
         lbLine1.setText(resJsonObject.getString("line1"));
+		
 
         coapClient.shutdown();
     }
@@ -281,10 +282,10 @@ public class ActuatorController implements Initializable {
 
     private void handleBtnHome(ActionEvent e) {
         StackPane rootPane = (StackPane) btnHome.getScene().getRoot();
-        actuatorPane.setOpacity(1);
-        KeyValue keyValue = new KeyValue(actuatorPane.opacityProperty(), 0);
+        anchorPane.setOpacity(1);
+        KeyValue keyValue = new KeyValue(anchorPane.opacityProperty(), 0);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(500),
-                event -> rootPane.getChildren().remove(actuatorPane),
+                event -> rootPane.getChildren().remove(anchorPane),
                 keyValue
         );
         Timeline timeLine = new Timeline();
