@@ -12,9 +12,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="btnAngle90" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #353545;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.sensor.Sensor1Controller">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #353545;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.sensor.Sensor1Controller">
    <children>
-   	<Label layoutX="343.0" layoutY="16.0" text="Sensor1" textFill="WHITE">
+   	<Label layoutX="360.0" layoutY="16.0" text="Sensor1" textFill="WHITE">
             <effect>
                <DropShadow />
             </effect>
@@ -27,7 +27,7 @@
                <DropShadow />
             </effect>
          </Separator>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="76.0" layoutY="171.0" pickOnBounds="true">
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="58.0" layoutY="97.0" pickOnBounds="true">
          <effect>
             <DropShadow />
          </effect>
@@ -35,7 +35,7 @@
             <Image url="@images/icons/ultrasonic.png" />
          </image>
       </ImageView>
-      <Label layoutX="78.0" layoutY="295.0" text="Ultrasonic" textFill="WHITE">
+      <Label layoutX="50.0" layoutY="186.0" text="Ultrasonic" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -43,7 +43,7 @@
             <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="337.0" text="angle :" textFill="WHITE">
+      <Label layoutX="184.0" layoutY="82.0" text="angle :" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -51,7 +51,7 @@
             <Font name="Malgun Gothic Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="376.0" text="distance : " textFill="WHITE">
+      <Label layoutX="316.0" layoutY="83.0" text="distance : " textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -59,8 +59,11 @@
             <Font name="Malgun Gothic Bold" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="btnAngle10" layoutX="233.0" layoutY="148.0" mnemonicParsing="false" text="10" />
-      <Label layoutX="271.0" layoutY="104.0" text="Angle" textFill="WHITE">
+      <Button fx:id="btnAngle10" layoutX="26.0" layoutY="221.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: ivory; -fx-border-color: yellow;" text="10">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Button>
+      <Label fx:id="lbAngle" layoutX="257.0" layoutY="81.0" text="xx" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -68,11 +71,7 @@
             <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="280.0" layoutY="148.0" mnemonicParsing="false" text="90" />
-      <Button fx:id="btnAngle170" layoutX="324.0" layoutY="148.0" mnemonicParsing="false" text="170" />
-      <Button fx:id="btnConfirm" layoutX="343.0" layoutY="210.0" mnemonicParsing="false" text="확인" />
-      <TextField fx:id="texAngle" layoutX="202.0" layoutY="210.0" prefHeight="23.0" prefWidth="126.0" />
-      <Label fx:id="lbAngle" layoutX="176.0" layoutY="335.0" text="xx" textFill="WHITE">
+      <Label fx:id="lbDistance" layoutX="412.0" layoutY="82.0" text="xx" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -80,15 +79,7 @@
             <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbDistance" layoutX="176.0" layoutY="375.0" text="xx" textFill="WHITE">
-         <effect>
-            <DropShadow />
-         </effect>
-         <font>
-            <Font name="Malgun Gothic Bold" size="20.0" />
-         </font>
-      </Label>
-      <LineChart fx:id="chartUltra" layoutX="205.0" layoutY="279.0" prefHeight="169.0" prefWidth="207.0">
+      <LineChart fx:id="chartUltra" layoutX="197.0" layoutY="125.0" prefHeight="150.0" prefWidth="557.0">
          <xAxis>
             <NumberAxis side="BOTTOM" />
          </xAxis>
@@ -96,15 +87,15 @@
             <NumberAxis side="LEFT" />
          </yAxis>
       </LineChart>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="442.0" layoutY="172.0" pickOnBounds="true">
+      <ImageView fx:id="imgTracking" fitHeight="80.0" fitWidth="80.0" layoutX="58.0" layoutY="316.0" pickOnBounds="true">
          <effect>
             <DropShadow />
          </effect>
          <image>
-            <Image url="@images/icons/tracking.png" />
+            <Image url="@images/icons/trackingBlack.png" />
          </image>
       </ImageView>
-      <Label layoutX="451.0" layoutY="295.0" text="Tracking" textFill="WHITE">
+      <Label layoutX="57.0" layoutY="414.0" text="Tracking" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -112,7 +103,7 @@
             <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbStatus" layoutX="451.0" layoutY="337.0" text="status :" textFill="WHITE">
+      <Label fx:id="lbStatus" layoutX="295.0" layoutY="273.0" text="black" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>
@@ -120,7 +111,7 @@
             <Font name="Malgun Gothic Bold" size="17.0" />
          </font>
       </Label>
-      <LineChart fx:id="chartTracking" layoutX="564.0" layoutY="172.0" prefHeight="169.0" prefWidth="207.0">
+      <LineChart fx:id="chartTracking" layoutX="197.0" layoutY="293.0" prefHeight="150.0" prefWidth="557.0">
          <xAxis>
             <NumberAxis side="BOTTOM" />
          </xAxis>
@@ -128,5 +119,45 @@
             <NumberAxis side="LEFT" />
          </yAxis>
       </LineChart>
+      <Label layoutX="212.0" layoutY="273.0" text="tracking :" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Malgun Gothic Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAngle90" layoutX="79.0" layoutY="221.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: ivory; -fx-border-color: yellow;" text="90">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAngle170" layoutX="133.0" layoutY="221.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: ivory; -fx-border-color: yellow;" text="170">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAngleMinus" layoutX="50.0" layoutY="260.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: ivory; -fx-border-color: yellow;" text="-10">
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAnglePlus" layoutX="109.0" layoutY="260.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: ivory; -fx-border-color: yellow;" text="+10">
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnHome" layoutX="729.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/icons/home_shadow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

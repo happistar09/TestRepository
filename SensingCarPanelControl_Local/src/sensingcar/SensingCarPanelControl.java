@@ -1,13 +1,14 @@
 package sensingcar;
 
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SensingCarPanelControl extends Application {
-
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent parent = FXMLLoader.load(getClass().getResource("Main.fxml")); //AppMain.class.getResource() 똑같음

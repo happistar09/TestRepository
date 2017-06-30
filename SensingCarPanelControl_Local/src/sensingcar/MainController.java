@@ -12,8 +12,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
@@ -22,43 +20,29 @@ public class MainController implements Initializable {
 	@FXML
 	private StackPane stackPane;
 	@FXML
-	private Button btnVideo;
+	private Button btnCameraMotor;
 	@FXML
-	private Button btnControl;
+	private Button btnActuator;
 	@FXML
-	private Button btnConsumed;
+	private Button btnWheel;
 	@FXML
-	private Button btnNotice;
+	private Button btnSensor1;
 	@FXML
-	private Button btnSetting;
-	@FXML
-	private Label lblTime;
-	@FXML
-	private Button btnCall;
-	@FXML
-	private ImageView packImage;
-	@FXML
-	private ImageView noticeImage;
+	private Button btnSensor2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-			btnCall.setOnAction(e -> handleBtnCall(e));
-			btnVideo.setOnAction(e -> handleBtnVideo(e));
-			
+			btnCameraMotor.setOnAction(e -> handleBtnCameraMotor(e));
+			btnActuator.setOnAction(e -> handleBtnActuator(e));
+			btnWheel.setOnAction(e -> handleBtnWheel(e));
+			btnSensor1.setOnAction(e -> handleBtnSensor1(e));
+			btnSensor2.setOnAction(e -> handleBtnSensor2(e));
     }
-
-	@FXML
-	private void handleBtnCheckArrived(ActionEvent event) {
-	}
-
-	@FXML
-	private void handleBtnCheckAdded(ActionEvent event) {
-	}
-
-	private void handleBtnCall(ActionEvent e) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("sensor/Sensor1.fxml"));
-			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Call.fxml이 쌓인다
+		
+	private void handleBtnCameraMotor(ActionEvent e) {
+		try {			
+			Parent parent = FXMLLoader.load(getClass().getResource("motor/cameramotor.fxml"));
+			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Vidio.fxml이 쌓인다
 
 			parent.setOpacity(0);
 
@@ -71,13 +55,12 @@ public class MainController implements Initializable {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-
 	}
 	
-	private void handleBtnVideo(ActionEvent e) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("sensor/Sensor.fxml"));
-			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Call.fxml이 쌓인다
+	private void handleBtnActuator(ActionEvent e) {
+		try {			
+			Parent parent = FXMLLoader.load(getClass().getResource("actuator/Actuator.fxml"));
+			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Vidio.fxml이 쌓인다
 
 			parent.setOpacity(0);
 
@@ -90,7 +73,60 @@ public class MainController implements Initializable {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	private void handleBtnWheel(ActionEvent e) {
+		try {			
+			Parent parent = FXMLLoader.load(getClass().getResource("motor/wheel.fxml"));
+			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Vidio.fxml이 쌓인다
 
+			parent.setOpacity(0);
+
+			KeyValue keyValue = new KeyValue(parent.opacityProperty(), 1);
+			KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+			Timeline timeLine = new Timeline();
+			timeLine.getKeyFrames().add(keyFrame);
+			timeLine.play();
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	private void handleBtnSensor1(ActionEvent e) {
+		try {			
+			Parent parent = FXMLLoader.load(getClass().getResource("sensor/Sensor1.fxml"));
+			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Vidio.fxml이 쌓인다
+
+			parent.setOpacity(0);
+
+			KeyValue keyValue = new KeyValue(parent.opacityProperty(), 1);
+			KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+			Timeline timeLine = new Timeline();
+			timeLine.getKeyFrames().add(keyFrame);
+			timeLine.play();
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	private void handleBtnSensor2(ActionEvent e) {
+		try {			
+			Parent parent = FXMLLoader.load(getClass().getResource("sensor/Sensor2.fxml"));
+			stackPane.getChildren().add(parent); // root.fxml의 stackpane보다 위에 Vidio.fxml이 쌓인다
+
+			parent.setOpacity(0);
+
+			KeyValue keyValue = new KeyValue(parent.opacityProperty(), 1);
+			KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+			Timeline timeLine = new Timeline();
+			timeLine.getKeyFrames().add(keyFrame);
+			timeLine.play();
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 
 }

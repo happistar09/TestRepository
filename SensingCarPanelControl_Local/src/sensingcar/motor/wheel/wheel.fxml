@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import sensingcar.motor.wheel.knob.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #353545;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.motor.wheel.WheelController">
+    <children>
+        <Label layoutX="346.0" layoutY="14.0" text="Wheels" textFill="WHITE">
+            <effect>
+                <DropShadow />
+            </effect>
+            <font>
+                <Font name="Malgun Gothic Bold" size="30.0" />
+            </font>
+        </Label>
+        <Separator layoutX="10.0" layoutY="70.0" prefHeight="0.0" prefWidth="780.0">
+            <effect>
+                <DropShadow />
+            </effect>
+        </Separator>
+        <Label layoutX="100.0" layoutY="99.0" text="Front wheels" textFill="WHITE">
+            <effect>
+                <DropShadow />
+            </effect>
+            <font>
+                <Font name="Malgun Gothic Bold" size="26.0" />
+            </font>
+        </Label>
+        <Label layoutX="524.0" layoutY="99.0" text="Back wheels" textFill="WHITE">
+            <effect>
+                <DropShadow />
+            </effect>
+            <font>
+                <Font name="Malgun Gothic Bold" size="26.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="imgFrontWheels" fitHeight="150.0" fitWidth="150.0" layoutX="105.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../images/icons/steering-wheel.png" />
+            </image>
+            <effect>
+                <DropShadow />
+            </effect>
+        </ImageView>
+        <AnchorPane fx:id="knobPane" layoutX="516.0" layoutY="138.0" prefHeight="136.0" prefWidth="248.0">
+            <children>
+                <Knob fx:id="speedControlKnob" layoutX="40" layoutY="10" prefHeight="190" prefWidth="190">
+                    
+                </Knob>
+                <Label fx:id="lblKnobSpeed" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="52.0" prefHeight="70.0" prefWidth="152.0" text="0000" textAlignment="CENTER">
+                    <font>
+                        <Font size="53.0" />
+                    </font>
+                </Label>
+            </children>
+         <effect>
+            <DropShadow />
+         </effect>
+        </AnchorPane>
+      <Button fx:id="btnLeftWheel" layoutX="19.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons/leftwheel2.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnRightWheel" layoutX="255.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons/rightwheel2.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="lblFrontAngle" alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="384.0" prefHeight="70.0" prefWidth="130.0" text="000°" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="50.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="412.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/icons/speedometer.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Button fx:id="btnDirectionForward" layoutX="557.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <image>
+                  <Image url="@../../images/icons/forward.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnDirectionBackward" layoutX="659.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <image>
+                  <Image url="@../../images/icons/backward.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnHome" layoutX="713.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../images/icons/home_shadow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="384.0" prefHeight="70.0" prefWidth="130.0" text="Angle=" textAlignment="CENTER" textFill="#a8a5a5">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Malgun Gothic Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="386.0" prefHeight="70.0" prefWidth="192.0" text="Direction=" textAlignment="CENTER" textFill="#a8a5a5">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Malgun Gothic Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDirection" alignment="CENTER" contentDisplay="CENTER" layoutX="592.0" layoutY="386.0" prefHeight="70.0" prefWidth="182.0" text="backward" textAlignment="CENTER" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Malgun Gothic Bold" size="37.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="423.0" layoutY="250.0" prefHeight="30.0" prefWidth="77.0" text="Speed" textAlignment="CENTER" textFill="#a8a5a5">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Malgun Gothic Bold" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnStop" layoutX="453.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <image>
+                  <Image url="@../../images/icons/stop.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+    </children>
+</AnchorPane>

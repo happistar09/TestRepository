@@ -30,7 +30,7 @@ public class Observation {
     private CoapObserveRelation coapObserveRelation4;
     private CoapObserveRelation coapObserveRelation5;
 
-    private String uri = "192.168.35.142";
+    private String uri = "192.168.3.30";
 
     private static Observation observation = new Observation();
 

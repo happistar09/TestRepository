@@ -1,0 +1,14 @@
+.default-color0.chart-series-line {
+    -fx-stroke: #f2d637;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #f2d637, white;
+    
+}
+.axis{
+    -fx-tick-label-fill: white;
+}
+.chart-title{
+    -fx-text-fill: #f2d637;
+}

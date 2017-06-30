@@ -10,115 +10,88 @@
 <?import javafx.scene.layout.*?>
 
 <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sensingcar.MainController">
-   <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #353545;" styleClass="bg">
-         <children>
-            <Button fx:id="btnVideo" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="338.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="보기" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons/eye(white).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Malgun Gothic Bold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <Button fx:id="btnControl" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="554.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="제어" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons/ammeter(white).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Malgun Gothic Bold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <Button fx:id="btnConsumed" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="122.0" layoutY="280.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="사용량" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons/chart(white).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Malgun Gothic Bold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <Button fx:id="btnNotice" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="338.0" layoutY="280.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="공지" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons/notepad(white).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Malgun Gothic Bold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <Button fx:id="btnSetting" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="554.0" layoutY="280.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="설정" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons/settings(white).png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Malgun Gothic Bold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <Button fx:id="btnCall" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="122.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="호출" textAlignment="CENTER" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons/call.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Malgun Gothic Bold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Separator layoutX="10.0" layoutY="70.0" prefHeight="0.0" prefWidth="780.0">
-               <effect>
-                  <DropShadow />
-               </effect></Separator>
-            <Label layoutX="340.0" layoutY="24.0" text="SensingCar" textFill="WHITE">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <font>
-                  <Font name="Malgun Gothic Bold" size="22.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="packImage" fitHeight="50.0" fitWidth="50.0" layoutX="229.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/icons/car.png" />
-               </image>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </children>
+	<children>
+		<AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #353545;" styleClass="bg">
+			<children>
+				<Separator layoutX="10.0" layoutY="70.0" prefHeight="0.0" prefWidth="780.0">
+					<effect>
+						<DropShadow />
+					</effect>
+				</Separator>
+				<Label layoutX="320.0" layoutY="14.0" text="SensingCar" textAlignment="CENTER" textFill="WHITE">
+					<effect>
+						<DropShadow />
+					</effect>
+					<font>
+						<Font name="Malgun Gothic Bold" size="28.0" />
+					</font>
+				</Label>
+				<Button fx:id="btnCameraMotor" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="326.0" layoutY="126.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="148.0" style="-fx-background-color: linear-gradient(to bottom, #8F8AFF, #FFF2E6);                 -fx-border: 12px solid; -fx-border-color: #BDAE24; -fx-background-radius: 15.0; -fx-border-radius: 15.0" text="CameraMotor" textAlignment="CENTER" textFill="#2D1E00">
+					<effect>
+						<DropShadow />
+					</effect>
+					<font>
+						<Font name="Malgun Gothic Bold" size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btnActuator" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="522.0" layoutY="240.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(to bottom, #4374D9, #FFF2E6);                 -fx-border: 12px solid; -fx-border-color: #BDAE24; -fx-background-radius: 15.0; -fx-border-radius: 15.0" text="Actuator" textAlignment="CENTER" textFill="#2D1E00">
+					<effect>
+						<DropShadow />
+					</effect>
+					<font>
+						<Font name="Malgun Gothic Bold" size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btnWheel" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="135.0" layoutY="214.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="106.0" style="-fx-background-color: linear-gradient(to bottom, #C9AA56, #FFF2E6);                 -fx-border: 12px solid; -fx-border-color: #BDAE24; -fx-background-radius: 15.0; -fx-border-radius: 15.0" text="Wheel" textAlignment="CENTER" textFill="#2D1E00">
+					<effect>
+						<DropShadow />
+					</effect>
+					<font>
+						<Font name="Malgun Gothic Bold" size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btnSensor1" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="185.0" layoutY="351.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(to bottom, #BCE55C, #FFF2E6);                 -fx-border: 12px solid; -fx-border-color: #BDAE24; -fx-background-radius: 15.0; -fx-border-radius: 15.0" text="Sensor1" textAlignment="CENTER" textFill="#2D1E00">
+					<effect>
+						<DropShadow />
+					</effect>
+					<font>
+						<Font name="Malgun Gothic Bold" size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btnSensor2" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="429.0" layoutY="365.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: linear-gradient(to bottom, #CE3636, #FFF2E6);  -fx-border: 12px solid; -fx-border-color: #BDAE24; -fx-background-radius: 15.0; -fx-border-radius: 15.0" text="Sensor2" textAlignment="CENTER" textFill="#2D1E00">
+					<effect>
+						<DropShadow />
+					</effect>
+					<font>
+						<Font name="Malgun Gothic Bold" size="18.0" />
+					</font>
+				</Button>
+				<ImageView fitHeight="50.0" fitWidth="50.0" layoutX="489.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@images/icons/cctv.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="50.0" fitWidth="50.0" layoutX="666.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@images/icons/rgb.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="50.0" fitWidth="50.0" layoutX="418.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@images/icons/gas-mask.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="50.0" fitWidth="50.0" layoutX="135.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@images/icons/ultrasonic.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="50.0" fitWidth="50.0" layoutX="78.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@images/icons/steering-wheel.png" />
+					</image>
+				</ImageView>
+			</children>
+		</AnchorPane>
+	</children>
 </StackPane>
