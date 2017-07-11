@@ -8,8 +8,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CameraResource extends CoapResource{
-	
+public class CameraResource extends CoapResource {
 	//Field
 	private static final Logger logger = LoggerFactory.getLogger(CameraResource.class);
 	private SG90ServoPCA9685Duration leftRightMotor;
@@ -21,7 +20,7 @@ public class CameraResource extends CoapResource{
 	private final int maxUpDown = 100;
 	private int currLeftRight;
 	private int currUpDown;
-	
+					
 	//Constructor
 	public CameraResource() throws Exception {
 		super("camera");
@@ -39,33 +38,32 @@ public class CameraResource extends CoapResource{
 		leftRightMotor.setAngle(angle);
 		currLeftRight = angle;
 	}
-
-	private void turnUpDown(int angle){
+	
+	private void turnUpDown(int angle) {
 		if(angle < minUpDown) angle = minUpDown;
 		if(angle > maxUpDown) angle = maxUpDown;
 		upDownMotor.setAngle(angle);
 		currUpDown = angle;
 	}
+	
 	@Override
 	public void handleGET(CoapExchange exchange) {
-		
 	}
 
 	@Override
 	public void handlePOST(CoapExchange exchange) {
 		//{ "command":"change", "leftright":"90", "updown":"10" }
 		//{ "command":"status" }
-		try{
+		try {
 			String requestJson = exchange.getRequestText();
-			JSONObject requestJsonObject = new JSONObject(requestJson);	
+			JSONObject requestJsonObject = new JSONObject(requestJson);
 			String command = requestJsonObject.getString("command");
-			if(command.equals("change")) {		
+			if(command.equals("change")) {
 				int leftright = Integer.parseInt(requestJsonObject.getString("leftright"));
 				int updown = Integer.parseInt(requestJsonObject.getString("updown"));
 				turnLeftRight(leftright);
 				turnUpDown(updown);
-			}			
-			else if(command.equals("status")) {			
+			} else if(command.equals("status")) {
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
@@ -79,6 +77,6 @@ public class CameraResource extends CoapResource{
 			responseJsonObject.put("result", "fail");
 			String responseJson = responseJsonObject.toString();
 			exchange.respond(responseJson);
-		}
-	}	
+		}		
+	}
 }

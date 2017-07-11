@@ -10,7 +10,7 @@ import org.eclipse.californium.core.server.resources.CoapExchange;
 
 public class CoapResource06 extends CoapResource {
 	//Field
-	private int value;
+	private double value;
 	private PCF8591 pcf8591;	
 	private GasSensor gasSensor;
 	private int flag=1;

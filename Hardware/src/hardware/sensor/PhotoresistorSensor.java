@@ -3,14 +3,17 @@ package hardware.sensor;
 import hardware.converter.PCF8591;
 
 public class PhotoresistorSensor {
+	//Field
 	private PCF8591 pcf8591;
 	
+	//Constructor
 	public PhotoresistorSensor(PCF8591 pcf8591) {
 		this.pcf8591 = pcf8591;
 	}
 	
-	public int getValue() throws Exception{
-		int analogVal = pcf8591.analogRead();
+	//Method
+	public double getValue() throws Exception {
+		int analogVal = pcf8591.analogRead(); 
 		return analogVal;
 	}
 	
@@ -24,3 +27,8 @@ public class PhotoresistorSensor {
 		}
 	}
 }
+
+
+
+
+

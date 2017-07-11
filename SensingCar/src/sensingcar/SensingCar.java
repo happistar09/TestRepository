@@ -14,6 +14,7 @@ public class SensingCar {
 	public SensingCar() throws Exception {
 		coapResourceServer = new CoapResourceServer();
 	}
+	
 	//Method
 	public void start() {
 		logger.info("실행");
@@ -29,13 +30,12 @@ public class SensingCar {
 	
 	public static void main(String[] args) throws Exception {
 		SensingCar sensingCar = new SensingCar();
-		sensingCar.start();		
+		sensingCar.start();
 		System.out.print("input command('q' to quit): ");
 		Scanner scanner = new Scanner(System.in);
 		String command = scanner.nextLine();
-		if(command.equals("q")){
+		if(command.equals("q")) {
 			sensingCar.stop();
 		}
-	}
-	
+	}	
 }

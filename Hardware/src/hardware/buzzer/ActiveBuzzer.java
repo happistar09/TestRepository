@@ -10,7 +10,7 @@ import com.pi4j.io.gpio.RaspiPin;
 public class ActiveBuzzer {
 	//Field
 	private GpioPinDigitalOutput buzzerPin;
-	private String status = "off";	
+	private String status = "off";
 	
 	//Constructor
 	public ActiveBuzzer(Pin buzzerPinNo) {
@@ -18,14 +18,14 @@ public class ActiveBuzzer {
 		buzzerPin = gpioController.provisionDigitalOutputPin(buzzerPinNo, PinState.HIGH);
 		buzzerPin.setShutdownOptions(false, PinState.HIGH);
 	}
-
 	
 	//Method
-	public void on(){
+	public void on() {
 		buzzerPin.low();
 		status = "on";
 	}
-	public void off(){
+	
+	public void off() {
 		buzzerPin.high();
 		status = "off";
 	}
@@ -35,7 +35,7 @@ public class ActiveBuzzer {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		ActiveBuzzer test = new ActiveBuzzer(RaspiPin.GPIO_24);
+		ActiveBuzzer test = new ActiveBuzzer(RaspiPin.GPIO_00);
 		for(int i=0; i<5; i++) {
 			test.on();
 			Thread.sleep(1000);
@@ -43,5 +43,4 @@ public class ActiveBuzzer {
 			Thread.sleep(1000);
 		}
 	}
-
 }

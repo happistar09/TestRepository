@@ -11,20 +11,20 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UltraSonicSensorResource extends CoapResource{
-	
+public class UltrasonicSensorResource extends CoapResource {
 	//Field
-	private static final Logger logger = LoggerFactory.getLogger(UltraSonicSensorResource.class);
+	private static final Logger logger = LoggerFactory.getLogger(UltrasonicSensorResource.class);
 	private PCA9685 pca9685;
 	private SG90ServoPCA9685Duration servoMotor;
 	private UltrasonicSensor ultrasonicSensor;
+	
 	private final int minAngle = 10;
 	private final int maxAngle = 170;
 	private int currAngle;
 	private int currDistance;
-		
+	
 	//Constructor
-	public UltraSonicSensorResource() throws Exception {
+	public UltrasonicSensorResource() throws Exception {
 		super("ultrasonicsensor");
 		setObservable(true);
 		getAttributes().setObservable();
@@ -40,20 +40,20 @@ public class UltraSonicSensorResource extends CoapResource{
 			public void run() {
 				int count = 0;
 				while(true) {
-					try{
+					try {
 						currDistance = ultrasonicSensor.getDistance();
 						Thread.sleep(500);
 						if(count == 2) {
 							changed();
 							count = 0;
-						} else {						
-							count ++;
+						} else {
+							count++;
 						}
-					} catch(Exception e){
+					} catch(Exception e) {
 						logger.info(e.toString());
 					}
 				}
-			}			
+			}
 		};
 		thread.start();
 	}
@@ -63,7 +63,7 @@ public class UltraSonicSensorResource extends CoapResource{
 		if(angle < minAngle) angle = minAngle;
 		if(angle > maxAngle) angle = maxAngle;
 		currAngle = angle;
-		servoMotor.setAngle(angle);		
+		servoMotor.setAngle(angle);
 	}
 	
 	@Override
@@ -79,19 +79,18 @@ public class UltraSonicSensorResource extends CoapResource{
 	public void handlePOST(CoapExchange exchange) {
 		//{ "command":"change", "angle":"90" }
 		//{ "command":"status" }
-		try{
+		try {
 			String requestJson = exchange.getRequestText();
-			JSONObject requestJsonObject = new JSONObject(requestJson);	
+			JSONObject requestJsonObject = new JSONObject(requestJson);
 			String command = requestJsonObject.getString("command");
-			if(command.equals("change")) {	
+			if(command.equals("change")) {
 				int angle = Integer.parseInt(requestJsonObject.getString("angle"));
 				setAngle(angle);
-				try{ Thread.sleep(1000); } catch(Exception e) {}		
-			}			
-			else if(command.equals("status")) {			
+				try { Thread.sleep(1000); } catch(Exception e) {}	
+			} else if(command.equals("status")) {
 			}
 			JSONObject responseJsonObject = new JSONObject();
-			responseJsonObject.put("result", "success");	
+			responseJsonObject.put("result", "success");
 			responseJsonObject.put("angle", String.valueOf(currAngle));
 			responseJsonObject.put("distance", String.valueOf(currDistance));
 			String responseJson = responseJsonObject.toString();
@@ -102,6 +101,6 @@ public class UltraSonicSensorResource extends CoapResource{
 			responseJsonObject.put("result", "fail");
 			String responseJson = responseJsonObject.toString();
 			exchange.respond(responseJson);
-		}
-	}	
+		}		
+	}
 }

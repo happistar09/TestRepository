@@ -1,4 +1,3 @@
-
 package hardware.button;
 
 import com.pi4j.io.gpio.GpioController;
@@ -18,29 +17,29 @@ public class Button {
 	//Constructor
 	public Button(Pin buttonPinNo) {
 		GpioController gpioController = GpioFactory.getInstance();
-		gpioPinDigitalInput= gpioController.provisionDigitalInputPin(buttonPinNo);
+		gpioPinDigitalInput = gpioController.provisionDigitalInputPin(buttonPinNo);
 		gpioPinDigitalInput.setShutdownOptions(true);
 	}
 	
-	public void setGpioPinListenerDigital(GpioPinListenerDigital gpioPinListenerDigital){
-		gpioPinDigitalInput.addListener(gpioPinListenerDigital);
+	public void setGpioPinListenerDigital(GpioPinListenerDigital listener) {
+		gpioPinDigitalInput.addListener(listener);
 	}
-	
+
 	//Method
 	public static void main(String[] args) throws IOException {
 		Button button = new Button(RaspiPin.GPIO_00);
 		button.setGpioPinListenerDigital(new GpioPinListenerDigital() {
 			@Override
 			public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-				if(event.getState() == PinState.HIGH){
+				if(event.getState() == PinState.HIGH) {
 					System.out.println("High");
 				} else {
 					System.out.println("Low");
 				}
-			}			
+			}
 		});
+		
 		System.out.println("Ready...");
 		System.in.read();
 	}
-	
 }

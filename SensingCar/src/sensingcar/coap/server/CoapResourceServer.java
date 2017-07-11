@@ -22,14 +22,14 @@ import sensingcar.coap.server.resource.PhotoresistorSensorResource;
 import sensingcar.coap.server.resource.RGBLedResource;
 import sensingcar.coap.server.resource.ThermistorSensorResource;
 import sensingcar.coap.server.resource.TrackingSensorResource;
-import sensingcar.coap.server.resource.UltraSonicSensorResource;
+import sensingcar.coap.server.resource.UltrasonicSensorResource;
 
 public class CoapResourceServer {
 	//Field
-	private static final Logger logger = LoggerFactory.getLogger(CoapResourceServer.class);
+	private static final Logger logger = LoggerFactory.getLogger(CoapResourceServer.class);	
 	private CoapServer coapServer;
 	
-	//static block (californium의 자체 로그 출력 금지)
+	//static block(californium의 자체 로그 출력 금지)
 	static {
 		CaliforniumLogger.initialize();
 		CaliforniumLogger.setLevel(Level.OFF);
@@ -53,13 +53,13 @@ public class CoapResourceServer {
 		coapServer.add(new CameraResource());
 		coapServer.add(new RGBLedResource());
 		coapServer.add(new LcdResource());
-		coapServer.add(new UltraSonicSensorResource());
+		coapServer.add(new UltrasonicSensorResource());
 		coapServer.add(new ThermistorSensorResource());
 		coapServer.add(new PhotoresistorSensorResource());
 		coapServer.add(new TrackingSensorResource());
 		coapServer.add(new GasSensorResource());
-		
 	}
+	
 	//Method
 	public void start() {
 		logger.info("실행");

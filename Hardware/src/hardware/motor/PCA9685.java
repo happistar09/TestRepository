@@ -17,7 +17,8 @@ public class PCA9685 {
 			singleton = new PCA9685();
 		}
 		return singleton;
-	}	
+	}
+	
 	private PCA9685GpioProvider gpioProvider;
 	
 	public static final Pin PWM_00 = PCA9685Pin.PWM_00;
@@ -35,17 +36,17 @@ public class PCA9685 {
 	public static final Pin PWM_12 = PCA9685Pin.PWM_12;
 	public static final Pin PWM_13 = PCA9685Pin.PWM_13;
 	public static final Pin PWM_14 = PCA9685Pin.PWM_14;
-	public static final Pin PWM_15 = PCA9685Pin.PWM_15;
-	
-	private int period;	
+	public static final Pin PWM_15 = PCA9685Pin.PWM_15;	
+
+	private int period;
 	
 	//Constructor
-	public PCA9685() throws Exception {
+	private PCA9685() throws Exception {
 		I2CBus i2cBus = I2CFactory.getInstance(I2CBus.BUS_1);
-		//0x40 : PCA9685 모듈의 I2C 장치 번호
-		//PWM 주파수를 50Hz로 설정(SG90 Servo Motor가 50Hz에서 동작하기 때문)		
+		//0x40: PCA9685 모듈의 I2C 장치 번호
+		//PWM 주파수를 50Hz로 설정(SG90 Servo Motor가 50Hz에서 동작하기 때문)
 		gpioProvider = new PCA9685GpioProvider(i2cBus, 0x40, new BigDecimal(50));
-		//한 사이클당 시간(period) : 1초/Frequency = 1/50Hz = 0.02s = 20ms = 20000us
+		//한 사이클당 시간(period): 1초/Frequencey = 1/50Hz = 0.02s = 20ms = 20000us
 		period = gpioProvider.getPeriodDurationMicros();
 		
 		//GPIO PWM 출력핀 설정
@@ -65,9 +66,23 @@ public class PCA9685 {
 		gpioController.provisionPwmOutputPin(gpioProvider, PWM_12);
 		gpioController.provisionPwmOutputPin(gpioProvider, PWM_13);
 		gpioController.provisionPwmOutputPin(gpioProvider, PWM_14);
-		gpioController.provisionPwmOutputPin(gpioProvider, PWM_15);	
+		gpioController.provisionPwmOutputPin(gpioProvider, PWM_15);
 		
 		gpioProvider.reset();
+	}
+	
+	public void setDuration(Pin pin, int duration) {
+		//duration: 0~19999us (20000일 경우 사이클이 형성이 되지 않음)
+		if(duration>=period) {
+			duration = (period - 1);
+		} else if(duration < 0) {
+			duration = 0;
+		}
+		if(duration !=0) {
+			gpioProvider.setPwm(pin, duration);
+		} else {
+			gpioProvider.setAlwaysOff(pin);
+		}
 	}
 	
 	public void setStep(Pin pin, int step) {
@@ -75,7 +90,7 @@ public class PCA9685 {
 		if(step >= 4096) {
 			step = 4095;
 		} else if(step < 0) {
-			step =0;
+			step = 0;
 		}
 		if(step != 0) {
 			gpioProvider.setPwm(pin, 0, step);
@@ -84,43 +99,33 @@ public class PCA9685 {
 		}
 	}
 	
-	public void setDuration(Pin pin, int duration) {
-		//duration: 0~19999us ( 20000일 경우 사이클이 형성이 되지 않음)
-		if(duration>=period) {
-			duration = (period - 1);
-		} else if (duration < 0) {
-			duration = 0;
-		}
-		if(duration !=0){
-			gpioProvider.setPwm(pin, duration);			
-		} else {
-			gpioProvider.setAlwaysOff(pin);
-		}
-		gpioProvider.setPwm(pin, duration);
-	}
-		
 	//Method
 	public static void main(String[] args) throws Exception {
 		PCA9685 pca9685 = PCA9685.getInstance();
 		
 		//0도로 회전
-		//pca9685.setDuration(PWM_00, 760);
-		pca9685.setStep(PWM_00, 164);
-		//pca9685.setDuration(PWM_01, 800);
-		//pca9685.setDuration(PWM_02, 2700);
-		Thread.sleep(2000);
-		//90도로 회전
-		//pca9685.setDuration(PWM_00, (760+2600)/2);
-		pca9685.setStep(PWM_00, 358);
-		//pca9685.setDuration(PWM_01, (800+2700)/2);
-		//pca9685.setDuration(PWM_02, (800+2700)/2);
-		Thread.sleep(2000);
-		//180도로 회전
-		//pca9685.setDuration(PWM_00, 2600);
-		pca9685.setStep(PWM_00, 552);
-		//pca9685.setDuration(PWM_01, 2700);
-		//pca9685.setDuration(PWM_02, 2700);
-		Thread.sleep(2000);
+		//pca9685.setDuration(PWM_00, 750);
+		//pca9685.setStep(PWM_00, 164);
+		//Thread.sleep(2000);
 		
+		//90도로 회전
+		//pca9685.setDuration(PWM_00, (750+2300)/2);
+		//pca9685.setStep(PWM_00, 358);
+		//Thread.sleep(2000);
+		
+		//180도로 회전
+		//pca9685.setDuration(PWM_00, 2300);
+		//pca9685.setStep(PWM_00, 552);
+		
+		//Thread.sleep(2000);
+		
+		for(int i=0; i<2; i++) {
+			pca9685.setStep(PWM_00, 280);
+			Thread.sleep(1000);
+			pca9685.setStep(PWM_00, 350);
+			Thread.sleep(1000);
+			pca9685.setStep(PWM_00, 400);
+			Thread.sleep(1000);
+		}
 	}
 }

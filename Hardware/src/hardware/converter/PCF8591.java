@@ -20,13 +20,13 @@ public class PCF8591 {
 		this.i2cAddress = i2cAddress;
 		this.ainNo = ainNo;
 	}
+	
 	//Method
 	public int analogRead() throws Exception {
 		I2CBus i2cBus = I2CFactory.getInstance(I2CBus.BUS_1);
 		I2CDevice i2cDevice = i2cBus.getDevice(i2cAddress);
-		//dummy read
-		i2cDevice.read(ainNo);
-		analogVal = i2cDevice.read(ainNo);	//0~255
+		i2cDevice.read(ainNo); //dummy read
+		analogVal = i2cDevice.read(ainNo); //0~255
 		return analogVal;
 	}
 	
@@ -42,7 +42,7 @@ public class PCF8591 {
 			//아날로그 값 읽기
 			int value = test.analogRead();
 			System.out.println(value);
-			//아날로그값 출력
+			//아날로그 값 출력
 			test.analogWrite((byte)value);
 			Thread.sleep(200);
 		}

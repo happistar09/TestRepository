@@ -8,19 +8,18 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FrontTireResource extends CoapResource{
-	
+public class FrontTireResource extends CoapResource {
 	//Field
 	private static final Logger logger = LoggerFactory.getLogger(FrontTireResource.class);
 	private PCA9685 pca9685;
 	private SG90ServoPCA9685Duration servoMotor;
-	private final int minAngle = 50;
 	private final int maxAngle = 130;
+	private final int minAngle = 60;
 	private int currAngle;
 	
 	//Constructor
 	public FrontTireResource() throws Exception {
-		super("fronttire");	
+		super("fronttire");
 		pca9685 = PCA9685.getInstance();
 		servoMotor = new SG90ServoPCA9685Duration(pca9685, PCA9685.PWM_00);
 		setAngle(90);
@@ -29,30 +28,27 @@ public class FrontTireResource extends CoapResource{
 	//Method
 	private void setAngle(int angle) {
 		if(angle < minAngle) angle = minAngle;
-		if(angle > maxAngle) angle =maxAngle;
+		if(angle > maxAngle) angle = maxAngle;
 		servoMotor.setAngle(angle);
 		currAngle = angle;
 	}
 	
-
 	@Override
 	public void handleGET(CoapExchange exchange) {
-		
 	}
 
 	@Override
 	public void handlePOST(CoapExchange exchange) {
 		//{ "command":"change", "angle":"90" }
 		//{ "command":"status" }
-		try{
+		try {
 			String requestJson = exchange.getRequestText();
-			JSONObject requestJsonObject = new JSONObject(requestJson);	
+			JSONObject requestJsonObject = new JSONObject(requestJson);
 			String command = requestJsonObject.getString("command");
 			if(command.equals("change")) {
 				int angle = Integer.parseInt(requestJsonObject.getString("angle"));
-				setAngle(angle);				
-			}			
-			else if(command.equals("status")) {			
+				setAngle(angle);
+			} else if(command.equals("status")) {
 			}
 			JSONObject responseJsonObject = new JSONObject();
 			responseJsonObject.put("result", "success");
@@ -65,6 +61,6 @@ public class FrontTireResource extends CoapResource{
 			responseJsonObject.put("result", "fail");
 			String responseJson = responseJsonObject.toString();
 			exchange.respond(responseJson);
-		}
-	}	
+		}		
+	}
 }
